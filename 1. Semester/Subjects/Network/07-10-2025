@@ -1,0 +1,124 @@
+there is 7 layers
+
+we need to agree on the protocols
+    everyone needs to agree before it can be inplamented
+    there are different protocols in different layers
+    if you use different protocols at the same time its refered to as a stack
+        protocols that are related are in a protocols suites
+
+
+OSI reference model
+7 Application
+6 Presentation 
+5 Session
+4 Transport
+    TCP/UDP
+3 Network 
+    IP
+2 Dataling
+    eathernet 802.3
+1 Physical
+    100BASET 
+
+
+
+UDP
+UDP er en forkortelse for User Datagram Protocol
+
+Den består af 4 dele
+
+Sorce port
+    Det er hvor du sender fra og er 16 bits
+destination port
+    Det er hvor du sender til og er 16 bits
+lenghtfield
+    total lengde af dit datagram 16 bits
+checksum
+    Bruges til at finde fejl 16 bits
+
+Den bruges ofte til Videospil, video streaming, Voice over call, DNS, time sensitive applications
+
+andre protocoller der ofte bruger UDP er
+DNS/Domain name system
+    UDP bruges for at minimere latency og for at hurtigere at finde det du leder efter
+DHCP/Dynamic host configureation protocol
+    UDP bruges til broadcast for at kunne finde de devices der er på dit netværk hurtigere
+SNMP/Simple network management protocol
+    UDP giver hurtigere overblik over hele netværket
+RTP/Real-time transport protocol
+    UDP bruges så der ikke er delay når du steamer medier
+
+
+
+short for User Datagram Protocol
+
+
+    sorce port 16 bit
+        The sorce prot
+    destination port 16 bit
+        The destination prot 
+    lenghtfield 16 bit
+        total length of the datagram
+    checksum 16 bit
+        used for error dection
+
+it being so small is due to its small header 
+
+its concetionless
+    meaning there is no handshakes in the prossess
+no garentee of dilevery
+    packets may be lost on the way 
+no packet ordering
+    no order in the way the packages are returned
+basic error checking
+    it provides a basic error checking system without the advanced reliavbility featuers of TCP
+
+
+DHCP
+
+er en forkortelse for Dynamic host configuration protocol
+
+alle pcer på et netværk skal have en ip adrasse for at kunne komme på netværket
+der er 2 slags der kan bruges
+    Static
+        Static er en du selv bestemmer hvad er og kræver at du ikke laver noget der har det samme som noget andet på dit netvært
+        Du skal selv sette din DNS default gateway for at kunne komme på nettet
+    DHCP
+        DHCP går det hele for dig vis den er konfiguret rigitgt
+
+Den skal konfigures for at kunne give noget til de ting på det netværk den er sat up til at være dhcp for
+
+den skal være sat med sin egen IP address og subnetmaske
+Så skal DHCP instillingerne laves
+    Du skal angive hvilket netværk den er på, hvilke ip adrasser den må uddeligere
+    hvilken subnetmaske der er på nettet
+    hvilken default gateway der skal bruges
+    hvilken DNS server der bruges
+
+når en dhcp skal give en ip adrasse up så får den en besked fra en pc om at den vil have en ip adrasse, det fårgår ved at pcen sender et broadcast ud og spørger om der er en DHCP tilstede
+
+når DHCP servern får en request sender den tilbage med et DHCP offer vilket er en liste af flere IP adrasser den har og kan uddele
+
+pcen modtager listen over de ip adrasser der er mulige at modtage op tager den øverste, den har ikke fået ip adrassen endnu men sender en request til DHCP serveren om at den gerne vil have adraseen
+
+DHCP serveren sender så den requested IP adrasse til pcen sammen med IP adrassen, subnetmasken, defualt gateway og DNS serveren
+
+Den får derefter et lease som er en tidsperiode (typisk 24 timer) hvor IP adrassen er reserveret til pcen, dette går den for ikke at skulle give alle pcer en ny ip adrasse hvergang de går nå internetted og får at spare på de ip adrasser den har til rådighed
+
+DHCP sender en pakke ud some levers med UDP
+    Det gør den fordi at det går hurtigt og kan komme langt på kort tid
+
+
+
+OSI model
+
+7 application
+    det er den der giver brugerne de ting de skal bruger FX HTTP
+    Den går at du kan give data til/fra application og presentation layerne
+6 presentation
+    Den oversetter det kode der er skrevet som går at programmet virker
+    den gør både så at du kan se hvad der er ip skærmen og så at programmet kan forstå de ting du forteller det
+    Den kan både snakke med application layered og session layered
+5 session 
+    Den håntere constuktionen, forbindelse, retningen og sikkerhed
+

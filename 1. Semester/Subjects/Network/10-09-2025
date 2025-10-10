@@ -1,0 +1,45 @@
+DHCP = dynamic host configuration protocol
+    Delivers IP adresses to the different devices on the network so they all 
+    can comunicate with the network
+
+ISP = Internet Service Provider
+    the company you are buying and reciving your puplic IP adress from
+        Ex. Yousee, at&t, fastspeed, and so on
+
+Use 192.168.0.254 for your DHCP to make it easier to remember which IP is your server
+
+DUP = A package type that isnt checked before its opened
+    A sending something that isnt checked
+    usually done to get to know the different devices on a network
+
+we set up different DCHP's today and tired to change around a lot of things with them
+    all the work we did was in Cisco packet tracer
+
+When setting up a DHCP you need to do it in a cirtain order to get it to work
+    1. you need to set a static IP adress for the server you want to give out the IP adresses to the other hosts in the network
+        in the real world you need to set its static IP withing the network you have at the given location
+    2. set the server to be a DHCP service in its settings
+        in the settings you need to set it to DCHP
+        Then you need to set from where its allowed to give out IP adresses from
+            We reserved 10 ip adresses for things that would need its own static IP adress
+        Then we conceted it to a switch that would then lead out to the devices that we wanted to had ip adresses
+        Remember to check that your ports and systems are turned on!
+
+We also learned to set up a DHCP for when you need to have different subnets in the network you are working in
+    for this you will need to add another RC45 socket in the server and conect it to another switch, that switch will then bring out the other IP adresses from the new port you set in the server.
+        You can conect as many servers and switches that you want depending on how you wanna set it up 
+Theres a few different things you want to be minduful of when setting up a DHCP
+    1. Make sure the cabels are conected right
+    2. Make sure the static and DHCP service are on the same network otherwhise it wont be able to send IP's out to the devices on the network
+    3. you cant have more than one DHCP on a service beard at once, it will make cross sections and mess with the all around conection around the network and will cause more than one machine to be able to have the same IP adress in resault causing non of them to work, so always set up another one instead
+
+
+When you are setting up a DHCP setting the DHCP service settings right is really importnat
+    Make sure the IP adresses its giving out is withing range of the network, if its outside the range given by the static IP and submask it wont be able to allow for comunication around your netwrok
+
+doubble check that your static IP is set right!
+    Within the network and submask as the IP range7submask you are reciving form your ISP
+
+Make sure all your equiment and all your ports work and are turned on!
+    setting up all the settings and everything is one thing so make sure its all turned on as well
+

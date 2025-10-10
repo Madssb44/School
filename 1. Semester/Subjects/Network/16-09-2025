@@ -1,0 +1,27 @@
+Today we will be working with a pysical DHCP from a raspberry pysical
+
+It was already set up with the ssd form the teacher so we didnt have to make the DHCP outselves 
+
+
+1 
+We got it all concted and got it all to work
+2
+both are tired and both worked and got answers when we used advanced ip scanner 
+3
+everyone can be found since theres no IP conflict
+4
+when 2 have the same ip the one with the static can not connect with anything and will get a failed IP
+5
+when the RPI is disconetcted the DHCP the PC's using DHCP to get their ip will get a failed IP
+6
+after reconecting the DHCP server and doing ipcongig release + renew you get a IP adress back and are now conected to the network again
+7
+if you connect to a wifi you still keep the eathernet IP given to you by the DHCP and you also get a IP adress from the wireless networks DHCP server so you have more than one at the same time
+
+
+pysical subnetting task
+
+We got it all to work on packet tracer and then set it up pyicaly
+
+when you switch one of the PC's out of the subnets reach will it still be found with advanced IP scanner since it still on the pysical network, but they wont be able to comunicate with eachother since its outside of the subnet itself.
+

@@ -1,0 +1,12 @@
+Make a protocol yourself on the tabel 
+
+
+We need to run it in a simulation with the whole tabel
+    send a DNS & HTTP
+
+it starts by asking the DNS if it knows the website/HTTP you are requesting and if it does it sends back the IP address you requested
+
+then the pc sends out a HTTP request form the web server with the now known IP address
+
+Its a good idea to take a good look at the simulations since there is gonna be a task at the 1 semester exam about it
+

@@ -1,0 +1,27 @@
+We installed advanced IP scanner and learned how to use it
+    Its a program thats used to check for IP adresses on the network you are on, since ipconfig commands like 'ipconfig /all' wont always show the IP/MAC adress of the people on the network for safty reasons, 
+
+TTL = time to live 
+    Tells you how long a thing has to get to the destionation and back
+        its in miliseconds
+
+ipconfig
+    used to check your ip/MAC adress
+ipconfig /release
+    gives up the IP adress you have been given by the DHCP thats giving you your IP in the network you are in.
+        The DHCP saves your IP for around 24 hours so you wont get a new one until after 24 hours
+ipconfig /renew
+    Tries to get an ip adress from a DCHP
+        Normally it would without you having to use this command but in a few situations you might need to request it yourself
+ipconfig /all
+    Checks for all the IP adresses in the network you are in and gives it to you in a list
+        A lot of operating systems are made to not tell your exacte IP/MAC adress for safety reasons so it won't be accurate so its better to use an ip scanner (advnaced IP scanner was used in the lesson)
+
+We had a little lab where we conected 4 pc's to a labtop and tried to get the to be able to ping eachother
+    once they were all set up with the lan cabel we had to go into the control panel and set our own ipv4 for them to be able to talk with each other through the switch,
+        Its important that we set it all up within the same network for it to work, so if one person had made their IP 10.10.10.10 and another person had made theirs 23.21.56.20 then they wouldnt have been able to ping each other, But if the first one was 10.10.10.10 and the second was 10.10.10.20 that would have worked since they could still find each other under the same subnet mask
+    We also had to make our submask match for them to be able to find each other but since we only were 4 then it wasnt needed since they could find eachother if we stayed withing the same host range
+        if you wanted to you could have tried to make a smaller submask like 255.255.255.252 since it can have 4 host's and that would have been enough for us to find each other but that wasnt part of the lesson so we didnt try that
+after the lab we were given a file with a setup for a workspace stretching over some distance and a few buildings and were tasked to set up the cabels so the internet would work
+    there were a distance at around 6,7km so a normal copper wire wouldnt work so we used fiber there, the others were withing 100m so normal copper wire worked there! there were some pc's laptop's smartphone's a server and some switches, access points and a single router.
+        Mads and i set it up ourselves in packet tracer and put the right cabels in the buildings and after class we made a DHCP which is the topic for tomorrow but we wanted to try, We got it to work and made it so all the things that could get a IP adress had one through the server as a DHCP. 

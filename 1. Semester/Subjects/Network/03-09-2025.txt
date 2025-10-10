@@ -1,0 +1,23 @@
+OSI 7 layer model
+ pysical
+    Cabels
+ data link
+    Adress is a Hexadecimal
+network
+    IP adress
+    ICPE
+Internet protocol
+    Header
+    Data 
+TCP
+    RFC request for comments for more information
+    the internet society ISOC controles it
+
+
+IP adresses we are allowed to use
+
+Subnet masking
+ statist
+    subnet mask isnt able to change
+ el vlsm 
+    Variable length subnet mask
