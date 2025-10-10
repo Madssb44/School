@@ -1,0 +1,205 @@
+Start of network
+
+lidt om læren 
+    født og bor i randers
+        Har boet andre steder
+    gift i snart ? år
+    søn andreas 
+        datatekniker med speciale i programmering
+    hund, kat, papegøje 
+        hun navn: ninjo
+    fruen har en kattepension
+        Mange mærkelige henvendelser
+            P piller, passning i 7 mpender, pasning i 2 måender mens i fenglsel
+
+    IOT (Home assisnat, RPI)
+    klassisk guitar
+    led zeppelin, goodbye june, dirty honey
+        Sydamerikansk musik
+    tennis
+    basketball
+         NBA cimbria pokalmester 2025
+    elbiler
+    sort humor
+    havearbejde
+
+    uddannet elektriker
+    cablux
+    arcodan am fuber
+    tdc 
+    testcom 
+
+    mercabtec 2006
+        teleinstilationstekniker i 2 årig
+        elekronikfagtekniker 4 årig
+        medicotekniker 1 årig
+    DJH + århus tech
+        elektriker hovedfårløb
+
+    eaaa siden 2023
+
+network
+    Cisco packet tracer
+    subnetting 
+    dhcp, DNS routing osi model
+    protokoller: ICMPm DGCP, TCP/IP, ethernet, DNS
+    switch, router (Fysisk: raspberry pi)
+    linux ubuntu
+    fiber optik
+
+
+General information we will learn in network classes
+    Cisco packet tracer
+        We will learn how to use CPT to set up a virtural network and test out diffrent things and possiabilities with a network
+    Subnetting
+        What subnetting is and why we use it
+    DHCP, DNS, routing OSI model
+    Switch, Router, (pysical: Raspberry pi)
+    Linux ubuntu
+        What it is and how to use it
+    fiber optiks
+    
+
+    Programmering
+        Python
+        Flowchart
+        Statmachine
+        Trafiklys opg
+
+General information we will learn in programming classes
+    Python
+        How to code in python
+        What its used for 
+    flowchart
+
+    statmachine
+
+    Trafic light project
+        A project where we will be making a tracic light using a raspberry pi and code it in micropython 
+
+
+Elektronik
+    general elektronik (cafa)
+    måleteknik (cafa)
+    ststem overblik færdig maskiner, (cafa)
+    Micropython Raspberry pi pico (Lkaa)
+    GPIO (Lkaa)
+    WOKWI (Lkaa)
+
+
+General information we will learn in electronics classes
+    
+
+Eksamen til januar
+    Øver en eksamen
+    1/2 skriftlig og mundlig eksamen
+
+
+Start på undervisning
+
+
+
+Pysisk 
+    Pysiske kabler
+
+Data link,
+    Første protokol
+
+Netværk
+    Første ip
+
+Transport
+    Sikkerhed
+
+Application
+    Klar til brug
+
+
+Hjemmenetvære
+    Kabeltv netværk
+    Fiber netværk
+
+
+SOHO lan
+    Støre netværk
+    Webserver, 
+
+
+UTP kan ikke forstyres på grund af en forskærker
+ UTP = unsealed tiwsted pair
+
+Kabel type: SF/UTP
+    Seal og foil
+
+eathernet frame
+    Preamble
+    SFD
+    Destionation
+    Source
+    Type 
+    Data and pad
+    Fcs
+
+hvad er et crossover stik
+    Crossover bruges når du selv skal sette i fra intake til modtag
+
+semester 1 
+    ip, 
+    klasser
+        a, b, c
+        ip adrasser
+        Subnetmaske
+        NAT (net adress translation)
+    
+    
+
+    kun version 4 ip
+     4 vytes eller 32 bit
+
+     Decimal
+        194.182.53.13
+     Binær
+        1100010.10110110.00110101.00001101
+     Hexadecimal
+        c2.b6.35.d 
+
+Klasser
+ A er meget store netværker, de første byte er mellem 0-127
+
+    Fx på klasse a ip adrasse: 20.21.13.11
+        på et klasse a netværk er den første dit netværk adrasse og de sidse 3 er din host adrasse
+
+    Subnetmasken for klasse a netværk er
+        255.0.0.0
+
+    Max net adrasser 126
+    Max hostadrasser 16.777.214
+
+ b er store netværker, 128-191
+
+    Fx på klasse b IP adrasse: 130.170.11.2
+        De første 2 er din net adrasse og de sidste 2 er din hostadrasse
+
+    Subnetmasken for klasse b netværk er
+        255.255.0.0
+
+    Max net adrasser 16.382
+    Max hostadrasser 65.534 
+
+ c er små netværker, 192-223
+
+    Fx på klasse c IP adrasse: 192.168.0.11
+        De Første 3 er din net adrasse den sidste er din host adrasser
+
+    Subnetværksmasken for klasse c netværk er
+        255.255.255.0
+
+    Max net adrasser 2.097.150
+    Max hostadrasser 254 
+    
+
+ Ip adrasseb består af 2 dele 
+    Netværksadrassen og hostadrassen
+
+
+
