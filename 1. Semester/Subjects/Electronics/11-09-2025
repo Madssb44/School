@@ -1,0 +1,22 @@
+RMS
+    the numbers we see when messuring is normally the RMS
+    the acual peak voltage will most likely me much heigher
+        its important to remember to use the right one when calcualting
+
+waveform 
+    formfactor
+        find out if its uniform
+    chresfactor
+        high would have high peak
+        low would be closer to the middle
+
+Voltage divider/potential divider
+    a passive system so adds no power
+    uses a voltage drop form a serice circet
+
+You can combine sinus curves to make different once
+
+PWM = Pulse wieth modulation 
+    times something is swithched on and off
+    can be used to simulate a frequinze by switching arond the ammount you are turning it on and off 
+

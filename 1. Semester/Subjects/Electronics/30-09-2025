@@ -1,0 +1,10 @@
+Today we are gonna be setting up a circet with LED lights and the right resistances for the leds to work 
+we will be working with 3 volts and will need to add resistances to the system to make it so that all the lights will be able to function
+We will be needing resistances with:
+    220 ohm for green & yellow
+    330 ohm for red
+
+in a led right there is a right way to turn it and set power to it so its important its thr right way or else the led wont take the power and wont be able to light up 
+
+one the red led the red is the long + anode 
+

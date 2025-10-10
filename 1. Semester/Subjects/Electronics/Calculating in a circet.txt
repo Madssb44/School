@@ -1,0 +1,71 @@
+When calculating in a circet you always calculate following the current/I 
+
+Vin = voltage incerted
+R = resistance
+I = Current/apm
+V = Volt
+P = power/watt
+T = Total/ for everything in the circet
+
+------------------------------------------
+The follwoing is things we need to calc 
+
+RT = total resistance in the circet
+        The formular for this is R1 + R2//R3
+IT = total current 
+        The formular for this is Vin/RT
+Ir = Current after passing through a resister 
+        If your voltage isnt reduced then you used IT
+        If your voltage is reduced you use the reduced voltage or Vr / R
+Vr = voltage after passing through a resister
+        IT * r
+------------------------------------------
+so in the follofwing circet 
+
+
+|---------------It----------------| 
+|                                 |
+|                                 |  
+Vin = 10V                     R1 = 1k Ω
+|                                 |  
+|                                 |  
+|                                 -------------------
+|                                 |                 |
+|                             R2 = 2,2 K Ω     R3 = 3,3 Ω
+|                                 |                 |
+-----------------------------------------------------
+
+We need to calculate in order of current flow in the circet
+
+RT = 2320 Ω
+IT = 4.31 mA
+Vr1 = 4.31 V
+Ir1 = 10 V
+So now for the next calculations ill have to use my Vr1 since the voltage has changed
+Ir2 = 1.96 mA
+Vr2 = 4.31 V
+Ir3 = 1.31 mA
+Vr3 = 4.31 V
+
+questions
+
+1. in a cirket are 3 resisters r1=200 r2=330 r3= 470
+what is Rt
+
+1000 ohms resistance total
+
+2. 
+359 ohms
+
+3.
+1130 ohms
+
+4.
+298 ohms
+
+5.
+444 ohms
+
+6.
+1692 ohms
+

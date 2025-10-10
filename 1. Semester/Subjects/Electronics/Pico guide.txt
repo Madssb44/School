@@ -1,0 +1,73 @@
+When making a modle of a pico in wokwi its important to remember the annodes and set them right
+
+
+Whene using a button its inmportant ot remember to type pull.up or pull.down depending on the type of button you are using
+
+
+
+
+from machine import Pin
+from time import sleep
+
+ledrNE= Pin(28, Pin.OUT)
+ledgNE=Pin(22, Pin.OUT)
+ledyNE=Pin(18, Pin.OUT)
+
+ledrSW = Pin(2, Pin.OUT)
+ledySW = Pin(3, Pin.OUT)
+ledgSW = Pin(4, Pin.OUT)
+
+x = "NE"
+
+ledrNE.on()
+ledgNE.off()
+ledyNE.off()
+ledrSW.on()
+ledgSW.off()
+ledySW.off()
+
+def NE_SW_r():
+    ledrNE.on()
+    ledrSW.on()
+    ledgNE.off()
+    ledgSW.off()
+    ledyNE.off()
+    ledySW.off()
+    sleep(1)
+def NE_r_y():
+    ledrNE.on()
+    ledyNE.on()
+    sleep(1)
+def NE_g():
+    ledgNE.on()
+    ledrNE.off()
+    ledyNE.off()
+    sleep(1)
+def NE_y():
+    ledyNE.on()
+    sleep(1)
+def SW_r_y():
+    ledrSW.on()
+    ledySW.on()
+    sleep(1)
+def SW_g():
+    ledgSW.on()
+    ledrSW.off()
+    ledySW.off()
+    sleep(1)
+def SW_y():
+    ledySW.on()
+    sleep(1)
+
+
+
+while True:
+
+    NE_SW_r()
+    NE_r_y()
+    NE_g()
+    NE_y()
+    NE_SW_r()
+    SW_r_y()
+    SW_g()
+    SW_y()
