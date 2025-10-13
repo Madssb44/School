@@ -4,11 +4,11 @@
 # for loop og modus % er gode at bruge i den her.
 
 for i in range(1, 101, 1):
-    if i % 3 and i % 5:
+    if i % 3 == 0 and i % 5 == 0 :
         print(f"{i} FizzBuzz")
-    elif i % 3:
+    elif i % 3 == 0:
         print(f"{i} Fizz")
-    elif i % 5:
+    elif i % 5 == 0:
         print(f"{i} Buzz")
     else:
         print(i)
