@@ -7,8 +7,8 @@
 # Brugeren skal kunne afslutte programmet ellers skal det køre.
 import time
 
-menu = ["おにぎり", "やきにく", "すし", "おこのみやき", "踞尾の魚"]
-menuPrice = [250, 150, 100, 2000, 2500]
+menu = [("おにぎり", 250),("やきにく", 150),("すし", 100),("おこのみやき", 2000),("踞尾の魚", 2500)]
+
 orders = 1
 done = 1
 order = []
@@ -20,13 +20,10 @@ while True:
     time.sleep(1)
     print("Here is the menu!")
     print("""                  
---------------------------------------
-おにぎり 250 ¥ per piece            
-やきにく 150 ¥ per piece             
-すし 100 ¥ per piece
-おこのみやき 2000 ¥ per meal
-踞尾の魚 2500 ¥ per meal                  
---------------------------------------        
+--------------------------------------""")
+    for item_name, item_price in menu:
+        print(f"{item_name} {item_price} ¥ per piece/meal")
+    print("""--------------------------------------        
 
           
 If you want to leave just type 'exit'          
@@ -35,24 +32,39 @@ If you want to leave just type 'exit'
     what = input("Which item do you want to order form the menu:\n")
     if what == "exit":
         exit()
-    if what in menu:
-        item = menu.index(what)
-        price = menuPrice[item]
-        orderTemp = "1 " + what + " which costs " + str(price) + " ¥"
+    
+    # Find the item in the menu
+    found_item = None
+    for item_name, item_price in menu:
+        if item_name == what:
+            found_item = (item_name, item_price)
+            break
+    
+    if found_item:
+        item_name, price = found_item
+        orderTemp = "1 " + item_name + " which costs " + str(price) + " ¥"
         order.append(orderTemp)
         total += price
+        
         while done != 0:
             print("Can i get you anything else?")
             nextItem = input(
                 "Either enter the item you want to buy or done to get your check:\n"
             )
-            if nextItem in menu:
-                what = nextItem
-                item = menu.index(what)
-                price = menuPrice[item]
-                orderTemp = "1 " + what + " which costs" + str(price) + " ¥"
+            
+            # Check if nextItem is in the menu
+            found_next = None
+            for item_name, item_price in menu:
+                if item_name == nextItem:
+                    found_next = (item_name, item_price)
+                    break
+            
+            if found_next:
+                item_name, price = found_next
+                orderTemp = "1 " + item_name + " which costs " + str(price) + " ¥"
                 order.append(orderTemp)
                 total += price
+            
             if nextItem == "done":
                 print(f"You have ordered {order[0:]}")
                 print(
