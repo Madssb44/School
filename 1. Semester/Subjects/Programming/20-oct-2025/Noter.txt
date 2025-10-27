@@ -1,0 +1,30 @@
+Today we are working on functions, 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+We always want to use a main() function to run our code
+
+It is also a good ide to set your while loop at the top of your main()
+    main function to run the entire code
+
+def
+    when making your own functions be sure to name them right
+
+when making anything in general make sure to name it right so if its a list make sure to make in known in
+its name to avoid confuction alter when calling back to the function
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local and global variabels
+
+if you make a variable in a function it will only work in that function,
+you can also make it global buy typing global (variable name) in the function and also making the
+variable outside the function
+
+if you want to return a variable at the end of a function to global you need to use return
+at the end of your function
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+new subject
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+new subject
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+new subject 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
