@@ -1,0 +1,6 @@
+Notes for today.
+
+We are having a recap day of the things we have learned in programming so far with some simple tasks to freshen up on what we have learned
+
+We got a simple task to make a calculator for changing a recipe to the ammount of people the user wants
+
