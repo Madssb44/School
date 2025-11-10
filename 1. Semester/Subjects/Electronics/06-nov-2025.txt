@@ -1,0 +1,297 @@
+Today we are working on a rocket project
+
+
+Here is the link the the whole wokwi file for future expansion https://wokwi.com/projects/446870701418290177
+
+
+
+
+--------------------------------------------------------------------------------------------------------------
+The following will be a working countdown system that will turn on a led when it reaches 0
+
+
+
+from machine import Pin
+from time import sleep
+
+sleep(0.5) # Wait for USB to become ready
+
+print("Hello, Pi Pico W!")
+
+
+led = Pin(10, Pin.OUT)
+
+pins = [
+    Pin(2, Pin.OUT),  # A
+    Pin(3, Pin.OUT),  # B
+    Pin(4, Pin.OUT),  # C
+    Pin(5, Pin.OUT),  # D
+    Pin(6, Pin.OUT),  # E
+    Pin(8, Pin.OUT),  # F
+    Pin(7, Pin.OUT),  # G
+    Pin(0, Pin.OUT)   # DP (not connected)
+]
+
+digits = [
+    [0, 0, 0, 0, 0, 0, 1, 1], # 0
+    [1, 0, 0, 1, 1, 1, 1, 1], # 1
+    [0, 0, 1, 0, 0, 1, 0, 1], # 2 
+    [0, 0, 0, 0, 1, 1, 0, 1], # 3
+    [1, 0, 0, 1, 1, 0, 0, 1], # 4
+    [0, 1, 0, 0, 1, 0, 0, 1], # 5
+    [0, 1, 0, 0, 0, 0, 0, 1], # 6
+    [0, 0, 0, 1, 1, 1, 1, 1], # 7
+    [0, 0, 0, 0, 0, 0, 0, 1], # 8
+    [0, 0, 0, 1, 1, 0, 0, 1], # 9
+]
+
+def reset():
+    """Turns off all segments on the 7-segment display."""
+    for pin in pins:
+        pin.value(1)
+
+def ledCheck():
+    if check == 1:
+        led.on()
+    if check != 1:
+        led.off()
+
+reset()
+count = 0
+check = 0
+while True:
+    for i in range(len(digits) - 1, -1, -1):
+        if check == 1:
+            led.on()
+            break
+        if check != 1:
+            led.off()
+        for j in range(len(pins)):
+            pins[j].value(digits[i][j])
+            count += 1
+            print(j)
+        sleep(1)
+    if count != 10:
+        check = 1
+        sleep(1)
+--------------------------------------------------------------------------------------------------------------------------------------------    
+Here it is again with a simple menu and restart option
+
+
+from machine import Pin
+from time import sleep
+
+sleep(0.5) # Wait for USB to become ready
+
+print("Hello, Pi Pico W!")
+
+
+led = Pin(10, Pin.OUT)
+
+pins = [
+    Pin(2, Pin.OUT),  # A
+    Pin(3, Pin.OUT),  # B
+    Pin(4, Pin.OUT),  # C
+    Pin(5, Pin.OUT),  # D
+    Pin(6, Pin.OUT),  # E
+    Pin(8, Pin.OUT),  # F
+    Pin(7, Pin.OUT),  # G
+    Pin(0, Pin.OUT)   # DP (not connected)
+]
+
+digits = [
+    [0, 0, 0, 0, 0, 0, 1, 1], # 0
+    [1, 0, 0, 1, 1, 1, 1, 1], # 1
+    [0, 0, 1, 0, 0, 1, 0, 1], # 2 
+    [0, 0, 0, 0, 1, 1, 0, 1], # 3
+    [1, 0, 0, 1, 1, 0, 0, 1], # 4
+    [0, 1, 0, 0, 1, 0, 0, 1], # 5
+    [0, 1, 0, 0, 0, 0, 0, 1], # 6
+    [0, 0, 0, 1, 1, 1, 1, 1], # 7
+    [0, 0, 0, 0, 0, 0, 0, 1], # 8
+    [0, 0, 0, 1, 1, 0, 0, 1], # 9
+
+]
+
+def reset():
+    """Turns off all segments on the 7-segment display."""
+    led.off()
+    count = 0
+    for pin in pins:
+        pin.value(1)
+
+
+reset()
+count = 0
+
+def standardSendOff():
+    global count
+    for i in range(len(digits) - 1, -1, -1):
+        for j in range(len(pins)):
+            pins[j].value(digits[i][j])
+        count += 1
+        sleep(1)
+        if count == 10:
+            led.on()
+            sleep(1)
+            count = 0
+
+
+def menu():
+    print("#"* 30)
+    print("\n\n\n\n")
+    print("To start a standard sendoff press 1")
+    print("To reset the system press 2")
+    print("\n\n\n\n")
+    print("#"* 30)
+    do = input("")
+    if do == "1":
+        standardSendOff()
+    if do == "2":
+        reset()
+
+def main():
+    
+    while True:
+        menu()
+
+main()
+
+----------------------------------------------------------------------------------------------------------------------------------
+Here is a version where you can change the step timer and countdown amount
+it still needs to be able to show it from the right time on the clock 
+
+
+from machine import Pin
+from time import sleep
+
+sleep(0.5) # Wait for USB to become ready
+
+print("Hello, Pi Pico W!")
+
+
+led = Pin(10, Pin.OUT)
+
+pins = [
+    Pin(2, Pin.OUT),  # A
+    Pin(3, Pin.OUT),  # B
+    Pin(4, Pin.OUT),  # C
+    Pin(5, Pin.OUT),  # D
+    Pin(6, Pin.OUT),  # E
+    Pin(8, Pin.OUT),  # F
+    Pin(7, Pin.OUT),  # G
+    Pin(0, Pin.OUT)   # DP (not connected)
+]
+
+digits = [
+    [0, 0, 0, 0, 0, 0, 1, 1], # 0
+    [1, 0, 0, 1, 1, 1, 1, 1], # 1
+    [0, 0, 1, 0, 0, 1, 0, 1], # 2 
+    [0, 0, 0, 0, 1, 1, 0, 1], # 3
+    [1, 0, 0, 1, 1, 0, 0, 1], # 4
+    [0, 1, 0, 0, 1, 0, 0, 1], # 5
+    [0, 1, 0, 0, 0, 0, 0, 1], # 6
+    [0, 0, 0, 1, 1, 1, 1, 1], # 7
+    [0, 0, 0, 0, 0, 0, 0, 1], # 8
+    [0, 0, 0, 1, 1, 0, 0, 1], # 9
+
+]
+
+def reset():
+    """Turns off all segments on the 7-segment display."""
+    led.off()
+    count = 0
+    for pin in pins:
+        pin.value(1)
+
+
+reset()
+count = 0
+step = 1
+countTo = 10
+
+def standardSendOff():
+    global count
+    global step
+    global countTo
+    for i in range(len(digits) - 1, -1, -1):
+        for j in range(len(pins)):
+            pins[j].value(digits[i][j])
+        count += 1
+        sleep(step)
+        if count == countTo:
+            led.on()
+            sleep(1)
+            count = 0
+
+def countdownChange():
+    global count
+    global step
+    global countTo
+    print("What do you want it to be set to?\n")
+    while True:  
+        try:
+            newCount = int(input(""))
+            countTo = newCount
+        except ValueError:
+            print("You can only make it a whole number from 1-10")
+        else:
+            if countTo > 9:
+                print("Only numbers between 1-9 are supported on the current system...")
+            elif countTo <= 9:
+                print("The new count will be active on your next activation")
+                sleep(1)
+                break
+            
+    
+
+def timerStepChange():
+    global count
+    global step
+    global countTo
+    print("What do you want it to be set to?\n")
+    while True:
+        try:
+            newStep = float(input(""))
+            step = newStep
+        except ValueError:
+            print("You can only set the timer to a number...\nIf you want it to be less than 1 second the format is 0.x where x is a number from 1-9 ") 
+            sleep(1)
+        else:
+            print(f"Timer now set and active form next activation")
+            sleep(1)
+            break
+            
+                
+def menu():
+    global count
+    global countTo
+    global step
+    print("#"* 30)
+    print("\n\n\n\n")
+    print("To start a standard sendoff press 1")
+    print("To reset the system press 2")
+    print("To change the countdown timer press 3")
+    print("To change the time between steps press 4")
+    print("\n\n\n\n")
+    print("#"* 30)
+    do = input("")
+    if do == "1":
+        standardSendOff()
+    if do == "2":
+        reset()
+    if do == "3":
+        countdownChange()
+    if do == "4":
+        timerStepChange()
+def main():
+    global count
+    global step
+    global countTo
+    while True:
+        menu()
+
+main()
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,93 @@
+Today we are working with the lightswitch again now making our own version of a lightswitch in wokwi 
+
+since i already made it last time i have the code here
+
+from machine import Pin
+from time import sleep
+
+# pin 1 er gul til højre
+# pin 2 er grøn til højre
+# pin 0 er rød til højre 
+# pin 5 er grøn til venstre 
+# pin 4 er gul til venstre
+# pin 3 er rød venstre
+
+ledrNE= Pin(0, Pin.OUT)
+ledgNE=Pin(2, Pin.OUT)
+ledyNE=Pin(1, Pin.OUT)
+
+ledrSW = Pin(3, Pin.OUT)
+ledySW = Pin(4, Pin.OUT)
+ledgSW = Pin(5, Pin.OUT)
+
+ledrNE.on()
+ledgNE.off()
+ledyNE.off()
+ledrSW.on()
+ledgSW.off()
+ledySW.off()
+
+def NE_SW_r():
+    ledrNE.on()
+    ledrSW.on()
+    ledgNE.off()
+    ledgSW.off()
+    ledyNE.off()
+    ledySW.off()
+    sleep(2)
+def NE_r_y():
+    ledrNE.on()
+    ledyNE.on()
+    sleep(1)
+def NE_g():
+    ledgNE.on()
+    ledrNE.off()
+    ledyNE.off()
+    sleep(4)
+def NE_y():
+    ledgNE.off()
+    ledyNE.on()
+    sleep(1)
+def SW_r_y():
+    ledrSW.on()
+    ledySW.on()
+    sleep(1)
+def SW_g():
+    ledgSW.on()
+    ledrSW.off()
+    ledySW.off()
+    sleep(4)
+def SW_y():
+    ledgSW.off()
+    ledySW.on()
+    sleep(1)
+
+
+
+while True:
+    NE_SW_r()
+    NE_r_y()
+    NE_g()
+    NE_y()
+    NE_SW_r()
+    SW_r_y()
+    SW_g()
+    SW_y()
+
+We will also be making our own version of this system on our circetboards we have been soldering the last few times in electronics
+
+to get the whole guide on how to do it you need to use pycharm
+    then close the current project you are in
+    then open learn and go to browse courses
+    almost at the bottom is the eaaa micropython course with the entire guide on how to get it to work
+
+when you wanna get a pico ready to be used you need to get it ready to run by installing some frameware on it by going to the pico site and downloading the latest version of the frameware and draging it onto the pico
+
+then in pycharm you need to make sure you have micropython tools plugin installed
+when you have the plugin installed you need to go into settings and find the plugin under tools settings and enable it,
+then you need to find the port the pico is connected to, you can either find it in the dropdown where it is if it has its frameware or by going into youre device manager and looking at the ports section
+
+then when you are all connected you need to close the settings and open the micropico tools on the sidebar
+
+when you are here you get a bar at the botton of the screen where you need to connect it to a project, when connected to a project you can rightclick on the project directory and uploade project to the pico if you want it to be on there or just run the program from the tools section
+
