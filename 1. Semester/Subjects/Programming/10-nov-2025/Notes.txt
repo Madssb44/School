@@ -1,0 +1,16 @@
+Make sure to keep the structure of your code in a nice and readable fashion 
+
+You can do this by by making your functions in the order they will be used in your code
+
+keeping the names meaningful and set the parameters to be something meaningful as well
+to make it easy to understand what the parameters expect 
+
+----------------------------------------------------------------------------------------------------
+
+Take care when using recursive functions 
+it can easily cause problems if the parameters isn't set up right and its limited by how many times you can call a function
+
+make sure you are able to reach the base case
+
+----------------------------------------------------------------------------------------------------
+
