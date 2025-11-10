@@ -26,10 +26,10 @@
 # print data DONE
 # exit to welcome DONE
 
-# Price pr ticket
-# depending on ticket type
-# active events stored in directories with nameofevent and fullentryofevent
-# Admin that can make/remove events
+# Price pr ticket DONE
+# depending on ticket type DONE
+# active events stored in directories with nameofevent and fullentryofevent DONE
+# Admin that can make/remove events DONE
 # when getting a ticket you can attend a event
 # nameofevent for printing list of events
 # fullentroyofevent for detailed information on the event
@@ -54,42 +54,81 @@ def clear():
 
 
 def welcomeMenu():
+    goTo = "placeholder"
     print("""
 ##########################################################################################
 Welcome to the not personal data stealing ticket center
 
 If you want to order a ticket press 1
-If you want to review statistics that totally aren't personal information press 2
+If you want to review statistics press 2
+If you want to see upcoming events press 3
+If you want to access the admin dashboard press 9
 
 ##########################################################################################""")
     goTo = input("Enter your choice: ")
+    while goTo not in ("1", "2", "3", "9"):
+        print("invalid input...")
+        goTo = input("Enter your choice: ")
+
     if goTo == "1":
         getTicket()
     if goTo == "2":
         toStats()
+    if goTo == "3":
+        seeListOfEvents()
+    if goTo == "9":
+        login()
+
+
+def seeListOfEvents():
+    if eventNameList:
+        print("The upcoming events are listed below")
+        for event in eventNameList:
+            print(event)
+        print(
+            "If you want to see a detailed description just type the name of it!\nKeep in mind your input is case sensitive!\nIf you want to return to welcome page type 'q'\n\n"
+        )
+        showMore = input("Enter name of the event or return here: ")
+        if showMore in eventNameList:
+            index = eventNameList.index(showMore)
+            print(fullEventEntryList[index])
+            input("Press enter to return to welcome page")
+        if showMore == "q":
+            return
+        else:
+            print("invalid input...")
+            sleep(1)
+            print("Returning to welcome page")
+            sleep(1)
+
+    else:
+        print("There are no upcoming events at the moment...")
 
 
 def toStats():
     clear()
+    goTo = "placeholder"
     print("""
 ##########################################################################################
 
 If you want to get information on your own ticket press 1
 If you want to see the average age of people who use this site press 2
-If you want to access the admin dashboard press 3
+if you want to return to welcome page press 3
 
 ##########################################################################################""")
     goTo = input("Enter your choice: ")
+    while goTo not in ("1", "2", "3"):
+        print("invalid input...")
+        goTo = input("Enter your choice: ")
+
     if goTo == "1":
         getPersonsInformation()
-    if goTo == "2":
+    elif goTo == "2":
         print("Getting average!")
         sleep(1)
         averageAge()
-    if goTo == "3":
-        print("Sending to login page!")
-        sleep(1)
-        login()
+    elif goTo == "3":
+        welcomeMenu()
 
 
 def login():
@@ -110,6 +149,7 @@ def login():
 def adminDashboard():
     while True:
         clear()
+        goTo = "placeholder"
         print("""
     ##########################################################################################
     Welcome to the admin dashboard
@@ -123,6 +163,9 @@ def adminDashboard():
     ##########################################################################################""")
 
         goTo = input("Enter your choice: ")
+        while goTo not in ("1", "2", "3", "4", "5", "q"):
+            print("invalid input...")
+            goTo = input("Enter your choice: ")
         if goTo == "1":
             print("Getting average")
             sleep(1)
@@ -136,7 +179,7 @@ def adminDashboard():
         if goTo == "5":
             removeEvent()
         if goTo == "q":
-            welcomeMenu()
+            break
 
 
 def makeEvent():
@@ -366,6 +409,8 @@ def getPersonsInformation():
 def getTicket():
     global allTimeUsers
     global ageOfAll
+    global eventNameList
+    global fullEventEntryList
     clear()
     print(
         "##########################################################################################"
