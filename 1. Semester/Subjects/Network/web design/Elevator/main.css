@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 12px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        #00b767 0%,
+        #00b767 20%,
+        #212529 20%,
+        #212529 75%
+    );
+}
+
+p{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+}
+
+h1{
+    text-align: center;
+    margin: 40px 40px 80px;
+    font-size: 120px;
+    color: black;
+}
+
+nav{
+    margin: 30px;
+    position: relative;
+    width: 1120px;
+    height: 100;
+    background-color: #75b798;
+    border-radius: 12px;
+    font-size: 0;
+}
+
+nav a{
+    line-height: 50px;
+    height: 100%;
+    font-size: 25px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+
+}
+
+nav ba{
+    line-height: 50px;
+    height: 100%;
+    font-size: 25px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+}
+
+
+nav .animation{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+    transition: all .5s ease 0s;
+    border-radius: 12px;
+}
+
+ba:nth-child(1){
+    width: 350px;
+}
+
+
+ba:nth-child(2){
+    width: 420px;
+}
+
+
+ba:nth-child(3){
+    width: 350px;
+}
+
+
+
+a:nth-child(1){
+    width: 300px;
+}
+
+
+a:nth-child(2){
+    width: 250px;
+}
+
+
+a:nth-child(3){
+    width: 250px;
+}
+
+
+a:nth-child(4){
+    width: 250px;
+}
+
+
+
+nav .start-redOn, a:nth-child(1):hover~.animation{
+    width: 1120px;
+    left: 0px;
+    background-color: rgb(255, 0, 0, 0.55);
+}
+
+nav .start-yellowOn, a:nth-child(2):hover~.animation{
+    width: 1120px;
+    left: 0px;
+    background-color: rgb(246, 255, 0, 0.75);
+}
+
+nav .start-greenOn, a:nth-child(3):hover~.animation{
+    width: 1120px;
+    left: 0px;
+    background-color: rgba(71, 245, 7, 0.35);
+}
+
+nav .start-allOn, a:nth-child(4):hover~.animation{
+    width: 1120px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+nav .stop, ba:nth-child(1):hover~.animation{
+    width: 1120px;
+    left: 0px;
+    background-color: rgb(255, 0, 0, 0.55);
+}
+
+nav .reset, ba:nth-child(2):hover~.animation{
+    width: 1120px;
+    left: 0px;
+    background-color: rgb(246, 255, 0, 0.75);
+}
+
+nav .start, ba:nth-child(3):hover~.animation{
+    width: 1120px;
+    left: 0px;
+    background-color: rgba(71, 245, 7, 0.35);
+}
+
