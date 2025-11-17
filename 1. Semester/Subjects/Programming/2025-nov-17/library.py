@@ -82,6 +82,7 @@ def register(accounts, nothing):
         accounts["passwords"].append(password)
         print("Account created")
         sleep(2)
+        updateAccounts(accounts)
         return accounts, username
 
 
@@ -96,8 +97,7 @@ def loggedIn(username):
         4 = show all books
         5 = show all books and if they are borrowed or not
         6 = show my borrowed books
-        7 = logout
-        999 = play snake""")
+        7 = logout""")
         pick = input("Enter choice here: ")
         while pick not in ("1", "2", "3", "4", "5", "6", "7", "999"):
             pick = input("invalid input\nEnter choice here: ")
@@ -125,9 +125,20 @@ def getBooks():
         return books
 
 
+def getAccounts():
+    with open(f"{path}/accounts.json", "r", encoding="UTF-8") as f:
+        accounts = json.load(f)
+        return accounts
+
+
 def updateBooks(books):
     with open(f"{path}/books.json", "w", encoding="UTF-8") as f:
         json.dump(books, f)
+
+
+def updateAccounts(accounts):
+    with open(f"{path}/accounts.json", "w", encoding="UTF-8") as f:
+        json.dump(accounts, f)
 
 
 def showBooks(check):
@@ -248,10 +259,7 @@ def showMyBorrowedBooks(username):
 
 
 def main():
-    accounts = {
-        "usernames": ["Admin"],
-        "passwords": ["Admin123"],
-    }
+    accounts = getAccounts()
     while True:
         login(accounts)
 
