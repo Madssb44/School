@@ -1,29 +1,29 @@
 # login DONE
 # check login DONE
-    # if existing login send to logged in DONE
-    # if not existing send to register DONE
+# if existing login send to logged in DONE
+# if not existing send to register DONE
 # register DONE
-    # needs a username & password DONE
-    # check if already existing  DONE
+# needs a username & password DONE
+# check if already existing  DONE
 # Logged in menu DONE
-    # search function DONE
-    # borrow/return books DONE
-    # show what you have borrowed DONE
-    # show all books and if its borrowed or not
-    # log out DONE
+# search function DONE
+# borrow/return books DONE
+# show what you have borrowed DONE
+# show all books and if its borrowed or not
+# log out DONE
 
 # search function
-    # checks for author DONE
-    # check for name DONE
-    # tells if book is already borrowed DONE
-    # match function if misspelled 
-    
+# checks for author DONE
+# check for name DONE
+# tells if book is already borrowed DONE
+# match function if misspelled
+
 # borrow/deliver system
-    # checks for borrowed books DONE
-    # checks if book is borrowed DONE
-    
-# Show my borrowed list 
-    # listing from borrowed books under name DONE
+# checks for borrowed books DONE
+# checks if book is borrowed DONE
+
+# Show my borrowed list
+# listing from borrowed books under name DONE
 
 # show all books DONE
 
@@ -32,53 +32,49 @@
 from time import sleep
 import json
 import os
-path = os.getcwd() + r"/Fag\Programering\2025-nov-17"
-#path = os.getcwd()
 
-#books = {
-#    "1984": {"Author": "George Orwell", "borrowed_by": None},
-#    "Python Basics": {"Author": "M. Dawson", "borrowed_by": None},
-#    "To Kill a Mockingbird": {"Author": "Harper Lee", "borrowed_by": None},
-#    "The Great Gatsby": {"Author": "F. Scott Fitzgerald", "borrowed_by": None},
-#    "Mysteriet i Skoven": {"Author": "Lars Mikkelsen", "borrowed_by": None},
-#    "Digital Fortess": {"Author": "Dan Brown", "borrowed_by": None},
-#    "En kort historie om næsten alt": {"Author": "Bill Bryson", "borrowed_by": None},
-#    "Ringenes Herre": {"Author": "J.R.R. Tolkien", "borrowed_by": None},
-#    "Hobbitten": {"Author": "J.R.R. Tolkien", "borrowed_by": None},
-#    "Den lille prins": {"Author": "Antoine de Saint-Exupéry", "borrowed_by": None}
-#}
+# path = os.getcwd() + r"/Fag\Programering\2025-nov-17"
+path = os.getcwd()
 
 
 def login():
-    accounts = {"usernames": ["Admin"],
-                "passwords": ["Admin"],
-                }
+    accounts = {
+        "usernames": ["Admin"],
+        "passwords": ["Admin123"],
+    }
     print("Welcome to the library\nYou need to login to continue")
     sleep(2)
     username = input("Enter username: ")
     password = input("Enter password: ")
     if username in accounts["usernames"]:
         index = accounts["usernames"].index(username)
-        if password in accounts["passwords"][index]:
+        print(index)
+        if password == accounts["passwords"][index]:
+            print(accounts["passwords"][index])
             loggedIn(username)
         else:
-            makeAcc = input("Username or Password was wrong\nDo you want to register for a account?\n(yes/no)\n")
-            while makeAcc not in ("yes","no"):
+            makeAcc = input(
+                "Username or Password was wrong\nDo you want to register for a account?\n(yes/no)\n"
+            )
+            while makeAcc not in ("yes", "no"):
                 print("invalid input")
             if makeAcc == "yes":
                 register(accounts)
     elif username not in accounts["usernames"]:
-        makeAcc = input("Username or Password was wrong\nDo you want to register for a account?\n(yes/no)\n")
-        while makeAcc not in ("yes","no"):
+        makeAcc = input(
+            "Username or Password was wrong\nDo you want to register for a account?\n(yes/no)\n"
+        )
+        while makeAcc not in ("yes", "no"):
             print("invalid input")
         if makeAcc == "yes":
             register(accounts)
-    
+
+
 def register(accounts):
     print("To create an account enter the following.")
     username = input("Enter Username: ")
     password = input("Enter Password: ")
-    if username in accounts["username"]:
+    if username in accounts["usernames"]:
         print("Username already taken")
         register(accounts)
     else:
@@ -88,8 +84,8 @@ def register(accounts):
         sleep(2)
         loggedIn(username)
         return accounts
-    
-    
+
+
 def loggedIn(username):
     while username:
         print("#######################################################")
@@ -103,7 +99,7 @@ def loggedIn(username):
         6 = show my borrowed books
         7 = logout""")
         pick = input("Enter choice here: ")
-        while pick not in ("1","2","3","4","5","6","7"):
+        while pick not in ("1", "2", "3", "4", "5", "6", "7"):
             pick = input("invalid input\nEnter choice here: ")
         if pick == "1":
             findBook()
@@ -121,30 +117,34 @@ def loggedIn(username):
             pick = None
             return
         pick = None
-        
-    
-def updateBooks(books):
-    with open (f"{path}/books.json", "w", encoding="UTF-8") as f:
-        json.dump(books, f)
+
 
 def getBooks():
-    with open (f"{path}/books.json", "r", encoding="UTF-8") as f:
+    with open(f"{path}/books.json", "r", encoding="UTF-8") as f:
         books = json.load(f)
         return books
-    
-def showBooks(check):   
-    with open (f'{path}/books.json', "r", encoding="UTF-8") as f:
+
+
+def updateBooks(books):
+    with open(f"{path}/books.json", "w", encoding="UTF-8") as f:
+        json.dump(books, f)
+
+
+def showBooks(check):
+    with open(f"{path}/books.json", "r", encoding="UTF-8") as f:
         books = json.load(f)
     if not check:
         for title in books.keys():
             print(title)
     if check:
-        for title,information in books.items():
+        for title, information in books.items():
             if information["borrowed_by"]:
-                print(f"{title} currently borrowed")
+                print(f"Title: {title} is currently: Borrowed")
             if not information["borrowed_by"]:
-                print(f"{title} currently not borrowed")
-                
+                print(f"Title: {title} is currently: Available")
+    sleep(2)
+
+
 def findBook():
     books = getBooks()
     print("""To find a book by title press 1 
@@ -152,58 +152,69 @@ To find a book by author press 2""")
     search = input("Enter choice here: ")
     if search == "1":
         search = input("Enter the books title here: ")
-        for title in books.keys:
+        for title in books.keys():
             if search == title:
                 if books[title]["borrowed_by"] is None:
-                    print(f"{title} is currently not borrowed and in the library!")
+                    print(
+                        f"{title} was found in the system and is currently available!"
+                    )
                     sleep(2)
                     return
                 if books[title]["borrowed_by"] is not None:
-                    print(f"{title} is currently borrowed")
+                    print(
+                        f"{title} was found in the system and is currently borrowed..."
+                    )
                     sleep(2)
                     return
-        print(f"No matches found for {title}")
+        print(f"No matches found for {search}")
         sleep(1)
     if search == "2":
         search = input("Enter the authors name here: ")
-        for title,book in books.items():
+        for title, book in books.items():
             if search in book["Author"]:
                 print(f"Match found for {search} with the title: {title}")
                 sleep(2)
-                return            
+                return
         print(f"No matches found for {search}")
         sleep(2)
 
-            
+
 def returnBook(username):
-        books = getBooks()
-        yourBorrowedBooks = []
-        for book,borrowedBy in books.items():
-            if borrowedBy["borrowed_by"] == username:
-                yourBorrowedBooks.append(book) 
-        if len(yourBorrowedBooks) == 0:
-            print("No borrowed books was found under your username")
-            sleep(2)
-            return
-        else:
-            print("Your currently borrowed books are:\n")
-            for book in yourBorrowedBooks:
-                print(book)
-                toReturn = input("Enter the title of the books you want to return or q to exit\nEnter input here: ")
-                while toReturn not in (yourBorrowedBooks,"q"):
-                    toReturn = input("Invalid input\nEnter the title of the books you want to return or q to exit\nEnter input here: ")
-                if toReturn == "q":
-                    return
-                if toReturn in yourBorrowedBooks:
-                    books[toReturn]["borrowed_by"] = None
-                    updateBooks(books)
-                    print(f"{toReturn} has been returned")
-                    sleep(2)
-        
+    books = getBooks()
+    yourBorrowedBooks = []
+    for book, borrowedBy in books.items():
+        if borrowedBy["borrowed_by"] == username:
+            yourBorrowedBooks.append(book)
+    if len(yourBorrowedBooks) == 0:
+        print("No borrowed books was found under your username")
+        sleep(2)
+        return
+    else:
+        print("Your currently borrowed books are:\n")
+        for book in yourBorrowedBooks:
+            print(book)
+            toReturn = input(
+                "Enter the title of the books you want to return or q to exit\nEnter input here: "
+            )
+            while toReturn not in (yourBorrowedBooks, "q"):
+                toReturn = input(
+                    "Invalid input\nEnter the title of the books you want to return or q to exit\nEnter input here: "
+                )
+            if toReturn == "q":
+                return
+            if toReturn in yourBorrowedBooks:
+                books[toReturn]["borrowed_by"] = None
+                updateBooks(books)
+                print(f"{toReturn} has been returned")
+                sleep(2)
+
+
 def borrowBook(username):
     booking = "ACTIVE"
     while booking:
-        print("You have the following options\n to see a list of all books press 1\nTo borrow a book enter its name\nTo exit press 'q'\nEnter choice here: ")
+        print(
+            "You have the following options\n to see a list of all books press 1\nTo borrow a book enter its name\nTo exit press 'q'\nEnter choice here: "
+        )
         toDo = input("")
         if toDo == "1":
             showBooks(True)
@@ -217,19 +228,26 @@ def borrowBook(username):
                     books[toDo]["borrowed_by"] = borrowedBy
                     updateBooks(books)
                 else:
-                    print("That book is already borrowed...")        
-                    
+                    print("That book is already borrowed...")
+
+
 def showMyBorrowedBooks(username):
     books = getBooks()
-    print("Books borrowed by you are: ")
-    for book in books:
-        if books["borrowed_by"] == username:
-            print(book)
+    toPrint = "Books borrowed by you are: "
+    for book, information in books.items():
+        if information["borrowed_by"] == username:
+            toPrint += "\n" + book
+    if toPrint == "Books borrowed by you are: ":
+        print("No books found under your name...")
+        sleep(2)
+    else:
+        print(toPrint)
+        sleep(2)
 
 
 def main():
     while True:
         login()
 
+
 main()
-     
