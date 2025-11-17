@@ -30,6 +30,7 @@
 # Log out DONE
 
 from time import sleep
+import hashlib
 import json
 import os
 
@@ -44,9 +45,8 @@ def login(accounts):
     password = input("Enter password: ")
     if username in accounts["usernames"]:
         index = accounts["usernames"].index(username)
-        print(index)
-        if password == accounts["passwords"][index]:
-            print(accounts["passwords"][index])
+
+        if encoding(password) == accounts["passwords"][index]:
             loggedIn(username)
         else:
             makeAcc = input(
@@ -56,7 +56,6 @@ def login(accounts):
                 print("invalid input")
             if makeAcc == "yes":
                 register(accounts, "")
-                print(accounts)
                 loggedIn(username)
     elif username not in accounts["usernames"]:
         makeAcc = input(
@@ -66,7 +65,6 @@ def login(accounts):
             print("invalid input")
         if makeAcc == "yes":
             register(accounts, "")
-            print(accounts)
             loggedIn(username)
 
 
@@ -79,11 +77,19 @@ def register(accounts, nothing):
         register(accounts, "")
     else:
         accounts["usernames"].append(username)
+        password = encoding(password)
         accounts["passwords"].append(password)
         print("Account created")
         sleep(2)
         updateAccounts(accounts)
         return accounts, username
+
+
+def encoding(password):
+    password = hashlib.sha256(
+        hashlib.sha256(password.encode()).hexdigest().encode()
+    ).hexdigest()
+    return password
 
 
 def loggedIn(username):
