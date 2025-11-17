@@ -37,11 +37,7 @@ import os
 path = os.getcwd()
 
 
-def login():
-    accounts = {
-        "usernames": ["Admin"],
-        "passwords": ["Admin123"],
-    }
+def login(accounts):
     print("Welcome to the library\nYou need to login to continue")
     sleep(2)
     username = input("Enter username: ")
@@ -59,7 +55,9 @@ def login():
             while makeAcc not in ("yes", "no"):
                 print("invalid input")
             if makeAcc == "yes":
-                register(accounts)
+                register(accounts, "")
+                print(accounts)
+                loggedIn(username)
     elif username not in accounts["usernames"]:
         makeAcc = input(
             "Username or Password was wrong\nDo you want to register for a account?\n(yes/no)\n"
@@ -67,23 +65,24 @@ def login():
         while makeAcc not in ("yes", "no"):
             print("invalid input")
         if makeAcc == "yes":
-            register(accounts)
+            register(accounts, "")
+            print(accounts)
+            loggedIn(username)
 
 
-def register(accounts):
+def register(accounts, nothing):
     print("To create an account enter the following.")
     username = input("Enter Username: ")
     password = input("Enter Password: ")
     if username in accounts["usernames"]:
         print("Username already taken")
-        register(accounts)
+        register(accounts, "")
     else:
         accounts["usernames"].append(username)
         accounts["passwords"].append(password)
         print("Account created")
         sleep(2)
-        loggedIn(username)
-        return accounts
+        return accounts, username
 
 
 def loggedIn(username):
@@ -97,9 +96,10 @@ def loggedIn(username):
         4 = show all books
         5 = show all books and if they are borrowed or not
         6 = show my borrowed books
-        7 = logout""")
+        7 = logout
+        999 = play snake""")
         pick = input("Enter choice here: ")
-        while pick not in ("1", "2", "3", "4", "5", "6", "7"):
+        while pick not in ("1", "2", "3", "4", "5", "6", "7", "999"):
             pick = input("invalid input\nEnter choice here: ")
         if pick == "1":
             findBook()
@@ -218,7 +218,7 @@ def borrowBook(username):
         toDo = input("")
         if toDo == "1":
             showBooks(True)
-        elif toDo == "q":
+        if toDo == "q":
             booking = False
         else:
             books = getBooks()
@@ -227,6 +227,8 @@ def borrowBook(username):
                     borrowedBy = username
                     books[toDo]["borrowed_by"] = borrowedBy
                     updateBooks(books)
+                    print(f"{toDo} is now booked")
+                    sleep(2)
                 else:
                     print("That book is already borrowed...")
 
@@ -246,8 +248,12 @@ def showMyBorrowedBooks(username):
 
 
 def main():
+    accounts = {
+        "usernames": ["Admin"],
+        "passwords": ["Admin123"],
+    }
     while True:
-        login()
+        login(accounts)
 
 
 main()
