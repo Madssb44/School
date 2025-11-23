@@ -1,50 +1,43 @@
-resisters are 
+# Resisters 
+Pot resisters can provide different resistances depending on how they are set
+
+### Color Bands 
+There are different color bands to represent the amount of resisters
+
+|Color|Numeric Value|Multiplier|Tolerance|Temperature coefficient
+|:---:|:---:|:---:|:---:|:---:
+|**BLACK**|0|1 Ω||250
+|**BROWN**|1|10 Ω|+1%|100
+|**RED**|2|100 Ω|+2%|50
+|**ORANGE**|3|1K Ω||15
+|**YELLOW**|4|10K Ω||25
+|**GREEN**|5|100K Ω|+0.5%|20
+|**BLUE**|6|1M Ω|+0.25%|10
+|**VIOLET**|7|10M Ω|+0.10%|5
+|**GREY**|8|100M Ω|+0.05%|1
+|**WHITE**|9|1G Ω||
+|**GOLD**||0.01 Ω|5%|
+|**SILVER**||0.01 Ω|10%|
+
+You can mix the different colors on a single resister making more unique combinations and more precise resistors, another way to get a precise resistance would be to set them up in a circuit, the 2 kinds being straight and parallel each having their own advantages and unique effects on how volt and amps
+
+## Fixed Value Resisters
+### Carbon
+There can be up to 20% difference from the resistance given by the manufacture so testing a resistor before you use it is important as to not ruin the electronic parts that are more fragile <br>
+resistance can change with their resistance with a few different factors the most common being temperature, such as surroundings in the area changing temperatures for season to season <br>
+most traditional resistors are made up of carbon and ceramics due to it being the cheapest
 
 
-pot resisters can provide diffrent resistances depending on how they are set
-
-color bands 
-
-
-fixed value resisters
-    carbon
-        up to 20% difference from the resistance given by the manucatrue
-        resistance can change with change in temp in the surounding area
-        most traditional and very resistant 
-        carbon and cearmic
-            the mix determins the resistance
-
-         
-    film/cement 
-        metal film, carbon film, metal film, 
-        lazer trimmed to fit a pricice resistance value
-            used for most pricition circets
-
-        metal film
-            most durable
-            low noice
-
-    wirearound
-        much larger and very prisice but with a low ohm value
-        can carry much higher abounts of power than others
-        designed to be mounted onto a heatsink to make sure they can carry more current
-
-        used where large amounts of energy needs to be disapated to heat and sometimes even used to heat up things
-        
-        phace shift
-            curent wave form change
-            its resistance changes with the sound in the surounding area 
+### Film Resisters 
+Made up of Metal film, Carbon film, Metal film<br>
+they are made by laser trimming the different layers together making the most precise but also making them cost more that a normal carbon resistor.<br>
+They are also mostly used in precision circuits due to them being the most durable and the once with the least electronic noise
 
 
+### Wirearound
+The largest type of resistor but the once with the lowest ohm making them very precise <br>
+Made to carry much larger amounts of current and over longer distances, they are designed to be mounted with a heat sink to ensure to make sure they are able to carry it without overheating and causing disruption. <br>
+Since they are used to carry large amounts of current and need heat sinks they are often used to heat things as well as carrying the current making them very useful for multiple purposes <br>
+They are also known to phase shift, meaning that the currents waveform will change while flowing through the resistor <br>
+They are also quite sensitive to surrounding electronic sound so they should only be used in controlled ways where such changes in resistance will cause trouble
 
-
-
-Start of lesson
-
-always reduce to get the accurate resault
-
-1 = 667 Ω 
-
-2 = 1333 Ω 
-
-3 = 1,5 KΩ
