@@ -1,1 +1,1 @@
-in this reposetory i will be saving my notes
+in this repository i will be saving my notes
