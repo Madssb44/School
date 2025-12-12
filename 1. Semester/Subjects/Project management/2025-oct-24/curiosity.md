@@ -1,4 +1,6 @@
-Self reflection & identification on my daily life:
+# Curiosity 
+
+## Self reflection & identification on my daily life:
 
 While there of course is a lot of things you can reflect on i wanted to focus on one of them i have been having some problems with recently after i stopped working for the first time because of stress.
 Before i got stressed and had a really rough period i had a wonderful relationship with food and cooking in general, i was always excited to try new recipes,
@@ -8,8 +10,7 @@ But since being at home for a while during my recovery from the stress and getti
 My relationship with food have been awful since then.
 Because of that i wanted to experiment with bringing back my curiosity for food, flavour and food-culture again, 
 
-
-Practical application:
+## Practical application:
 
 To be able to apply curiosity in regards to food i knew i needed to take a few steps to make it possible for myself.
 
@@ -20,7 +21,6 @@ Second was to take notes of what looked good and interesting and looking up what
 
 Third was talking about the things i saw and telling people about the foods i was finding interesting and having conversations about food in general to not only further my own want and curiosity for it but also surround
 myself with people who would also be able to spark more curiosity for it.
-
 
 When it then came to the application some problems came up and one of the most primary ones i was able to identify was the routine i had made for myself regarding food at this point.
 I never really got started with my projects i had set myself with food, it was always the same routine i went back to.
@@ -38,10 +38,8 @@ I knew the more i will practice this the more it would become something that wou
 and how i think about trying new foods, so my plan is to keep trying new things and break out of my routine so i hopefully can get to a point where i can be able to have a healthy balance between discovering new foods and making
 the different foods i have discovered and love. 
 
-
-Reflection:
+## Reflection:
 
 This whole experience and experiment has opened my eyes to how much i can affect my own curiosity and how hard easy it is to kill it as well, from doing a daily routine and never trying something new to taking each day step by step to
 experience new things, and while its not a reliable way to live to never plan anything and always try new things i think its healthy to try and incorporate it into your life to keep not only life interesting but also keep your mind 
 healthy and able to be excited about trying new things and seeking out new experiences.
-

@@ -1,31 +1,12 @@
-Notes for today
+# **Courage & Fear**
+Today we covered the characteristic 'Courage' <br>
+The more specific part we worked with was fear and how to overcome it.
 
-----------------------------------------------------------------------------------------------------
-
-Fear and how to overcome it
-
-----------------------------------------------------------------------------------------------------
-Task about fear
-
-Understand & reflect
+We were then given a task to involving fear where we would have to try something that we were afraid of and then reflect on the experience and cover some points the teacher wanted us to mention/reflect on
 
 
 
-Challenge & what to do
-
-
-
-Reflection and growth
-
-
-
-----------------------------------------------------------------------------------------------------
-Sprint day 3 Wednesday
-
-
-
-----------------------------------------------------------------------------------------------------
-Project on fear:
+## **Project on fear**
 
 Finding something i fear or are afraid of wasn't really the problem i had but i still
 had a really hard time deciding on what i wanted to try and challenge when it came to fear.
