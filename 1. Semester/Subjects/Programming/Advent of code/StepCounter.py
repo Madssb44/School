@@ -1,3 +1,5 @@
+from time import sleep
+
 def addWeek(weeks: dict, count: int) -> dict | str | int:
     weekdays = {"Monday": 0,
             "Tuesday": 0,
@@ -8,16 +10,17 @@ def addWeek(weeks: dict, count: int) -> dict | str | int:
             "Sunday": 0
     }
     
-    test = "week " + str(count)
-    
-    if test in weeks:
+    test = "Week " + str(count)
+    if test in weeks.keys():
         count += 1
-        week = "Week " + count
-        weeks[week:weekdays]
+        week = "Week " + str(count)
+        weeks[week] = weekdays
+        print(weeks)
         steps(weeks, week, count)
     else:
-        week = "Week " + count
-        weeks[week:weekdays]
+        week = "Week " + str(count)
+        weeks[week] = weekdays
+        print(weeks)
         steps(weeks, week, count)
         
 def steps(weeks: dict, week: str, count: int) -> dict | int:
@@ -34,10 +37,29 @@ def more(weeks: dict, count: int) -> dict | int:
         case "1":
             addWeek(weeks, count)
         case "2":
-            exit()
-            
+            showStats(weeks)
+                    
+def showStats(weeks: dict) -> None:
+    total = 0
+    average = 0
+    max = 0
+    weeknum = 0
+    for week in weeks.values():
+        weeknum += 1
+        for day, steps in week.items():
+            average += 1
+            total += int(steps)
+            if int(steps) > max:
+                max = int(steps)
+                printableMax = f"The day with the most steps was {day} in week {weeknum} with {steps}!"
+    average = total / average
+    print(f"The average of your registered steps are: {round(average, 2)} steps!\n{printableMax}\nKeep up the good work!\n\nUntil next time!")
+    exit() 
 def main():
     weeks = {}
     count = 1
     while True:
+        print("Starting step counter!")
         addWeek(weeks, count)
+        
+main()
