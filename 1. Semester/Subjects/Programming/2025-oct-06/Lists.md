@@ -1,3 +1,5 @@
+# Lists
+
 When making a list you need to name it and give it some values
     numbers[10,20,30,40]
 A list counds from zero so the list above would have 10 as the 0 posission and then 20 in 1 posission
