@@ -1,77 +1,73 @@
-Today 
+# Smart & personal goals
+Today we covered the S.M.A.R.T model as well as setting ourself some goals to achieve form the semester.
+
+## What is S.M.A.R.T?
+Smart is a method to make sure the goals you set for yourself is something that is realistic and achievable as to not get demotivated or give up on your goals.
+
+The whole reason to set goals for yourself is because its a amazing way to keep yourself motivated and a way to gamefy something you are working on and cheat your mind into being more motivated for whatever your working on
 
 
-its important to set goals for yourself it will keep you motivated and make it easier to keep yourself at whatever your goal is
+### S.M.A.R.T
 
-S.M.A.R.T
+**S = Specific** <br>
+Make specific goals it make sure you don't get overwhelmed by a too large/broad scope, if the goal already seems unreachable before you even start it makes it much harder to get going. 
 
-    S. Specific
-        Make it specific so it isn't too broad 
-    M. Measurable
-        Make it something where you can measure on how its going so you can see your progress
-    A. Achievable
-        Make sure its something thats achievable 
-    R. Relevant   
-        it needs to be relevant for what you want to learn and not something you feel is important
-    T. Time limit
-        Set a time limit for yourself to make sure you don't just procrastinate on the goal you have set yourself!
+**M = Measurable** <br>
+Make sure you have some way to measure your progress! not being able to see any progress will make it feel like you aren't learning anything, but if you are able to measure/compare to a earlier point in your journey its becomes a small success that will make you even more motivated and make you feel like you accomplished something
 
---------------------------------------------------------------------------------------------------------------
+**A = Achievable** <br>
+Make it achievable, it should come as no surprise that it needs to be a realistic goal in the first place! just like keeping it specific it needs to be something thats actually achievable, it might be hard to see goals in a field that you don't know anything about but if thats the case then making smaller goals like getting to know the basics of the field instead of mastering it will be a much better approach!
 
-You are always gonna meet some resistance when trying to get to your goal, it can both be from yourself and what you think about yourself but it can also be from the people around you telling you its too hard.
+**R = Relevant** <br>   
+The goal also has to be relevant, meaning that there is no need to go out of your way to make a goal for just anything or everything in your life just to keep it interesting as well as not making a goal that has nothing to do with the actual end goal for what you are trying to accomplish
 
-You can use resistance to make yourself stronger in what you are trying to do, learn, or get to
+**T = Time limit** <br>
+Set a time limit for yourself! the more time you have the more likely you are to not get to work, this is another way to cheat your mind into wanting to get the work done and a way to be able to learn more than you normally would since your brain knows theres a deadline coming up so it wants to get the work done as to not disappoint
 
---------------------------------------------------------------------------------------------------------------
+### Its not that easy...
+Just because you have set a goal and made all the right preparations before starting doesn't mean that its gonna be easy, throughout your journey theres gonna be challenges that will make you wanna quit or stop entirely, that can either come from something difficult or from someone else telling you that what you are doing is dumb, but its important to not let it effect you too much! Its your goal after all so what right do they have to tell you if its dumb or not!
 
-Everything you do in life will have a effect on what happens in your life from the small things to the big decisions you take, some of the things that happens is because of you and some are because of the people around you. 
+And remember each time you manage to make it through a rough period or a dumb comment from someone it gets easier! Never let anyone tell you what you can or can't do!
 
---------------------------------------------------------------------------------------------------------------
+### Accountability
+Its also important that you take accountability for your own goal! Its you and only you who can how are held accountable for what you do and how you do it, always blaming everyone else when something doesn't go your way isn't gonna make it any easier in the future so being able to see when its something out of your control is a important think to be able to do, and of course when it is something you did that has caused you to not accomplish your goal or failed to get something done in time not to beat yourself up over it but try and make it a motivator, this is one of the hardest skills put to use but will be one of your best tools to keep learning throughout the rest of your life!
 
-What is it to take accountability
+## My 3 Goals
+Now time to set some goals for myself! theres gonna be 3 different parts ill set some goals for being the following:
 
-You are the only person who can take control of your life, you are the only person who is accountable for your own life!
-
-It is important to remember that not everything in your life will be something you are able to change, its important to not get stuck on the things you aren't able to control
-
---------------------------------------------------------------------------------------------------------------
-
-Make 3 goals for each of the subjects: 
-
-1 Goal for the 1st semester
+### Goal for the 1st semester
     1. Keep up with the education and all the things we will learn.
     2. Be able to understand and explain the things we are working on in the different lessons and subjects
     3. Show up to school and the lessons and partake in extra activities that will be held regarding the subjects
-1 Goal for my family life
+### Goal for my family life
     1. Keep up with my family and make sure to call them every month and talk a bit with them and keep up with how they are doing and whats going on in their life
     2. Visit my family at least once a month
     3. Be able to keep with my brother and the things we want do be able to do together
-1 Goal for my personal life
+### Goal for my personal life
     1. Expand my knowledge in the field of offensive pentesting through 0DAY, HackTheBox, TryHackMe, kali linux and other online recurses that can teach and better my understanding of the subject.
     2. I also want to get a high enough understanding of the tools, programs and challenges as a whole to be able to partake in a CTF tournament with 0DAY and be able to solve some of the challenges!
     3. Establish a good and healthy work life balance and be able to keep it up through out my whole school life and be able to make it substantiable for after my school life and into my work life
 
---------------------------------------------------------------------------------------------------------------
+## Kanban
+We then talked a bit about kanban, a way to plan out your week and be able to be more productive by using some tactics and planing your week in a way to make you more likely to get everything you want to do in a structured and efficient way!
 
-Kanban
+### How to do it?
+Make a list of things you have to do over a week <br>
+The list will consist of 3 parts <br>
+1 = the things you need to do <br>
+2 = what you are doing <br>
+3 = what you are done doing <br>
 
-Make a list of things you have to do over a week
-    The list will consist of 3 parts
-    1 = the things you need to do
-    2 = what you are doing
-    3 = what you are done doing
-    write it down
+Now write everything down and place all the things on the 1st part! <br>
+Now for the things thats gonna make it work! 
 
-you are only allowed to do one thing at a time!
+You are only allowed to do one thing at a time! This is to make sure that you don't jump back and forth when you wanna do different tasks since having more to think about at once is gonna make it harder to get anything done at all, also when you start a task you move it from the 1st row into the 2nd row to indicate that you are now doing something, The process of just moving something over is proven to make it easier to actually start doing the task itself, this is because just moving a piece of paper is a simple task that doesn't really take any effort to do but now that you moved it you aren't doing anything else, unlike if you were sitting down watching a video and thinking about having to do it, suddenly you need to stop what you are doing just to do something you might not even wanna do in the first place making it more likely that you aren't gonna do it
 
-its a good way to game ify your daily or weekly tasks and make it easier to get all your things done
+Its also a good way to gamefy your tasks and trick your mind into wanting to do it just to see that clean side of the board that was filled with tasks just a few hours ago!
 
-It works really well in small projects, daily tasks,
+The kanban method usually works best for smaller projects//tasks or day to day planing since if you plan out months there would be way too many things to tackle making it more daunting that its helping with structuring it
 
-make a list of all the weekly tasks you have to do (Use the app: trello)
-
---------------------------------------------------------------------------------------------------------------
-
+### Sprint Day 1
 The problem we will be working with is: 
 
 Simon has a problem with making food for him and his room mate
@@ -89,7 +85,7 @@ They buy groceries together on the days where this room mate doesn't work late h
 Innovation Day 1. Monday
     understanding the problem, make a map over how to solve the problem
 
-make frozen dishes that can be heated directly from the freezer
+    make frozen dishes that can be heated directly from the freezer
 
 
 Day2. tuesday
