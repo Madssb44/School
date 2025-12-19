@@ -17,7 +17,7 @@ it makes it so that you wont have to test something over and over again and dest
 ## Calculations
 
 ### **Ohms Law Formulas**
-|Known Values|Resistance (R)|Current (I)|Voltage (V)|Power (P)'
+|Known Values|Resistance (R)|Current (I)|Voltage (V)|Power (P)
 |:---:|:---:|:---:|:---:|:---:
 |**Current & Resistance**|$$---$$|$$---$$|$$V=I*R$$|$$P=I²*R$$
 |**Voltage & Current**|$$R  = \frac{V}{I}$$|$$---$$|$$---$$|$$P=V*I$$
