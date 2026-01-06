@@ -1,0 +1,32 @@
+Things i wanna do in packet tracer:
+
+    - Make a 2 router network
+
+    - Make a 3 router network
+
+    - Look at packages form the following:
+        1. DNS
+        2. PING
+        3. DCHP
+
+    - set up a DNS and make a webserver that can communicate
+
+Things i wanna do in linux:
+
+    - Make a basic bash script that can update and creat files and wirte something to them
+
+
+
+Things i wanna do in electronics:
+
+    - look at the formulars for calculating in circuits and ohlm's law
+
+
+Thinks i wanna do in micro python:
+
+    - Make a simple sequence light
+
+    - Make a button activated program
+        One where one button raises the number on the 7-segment and the other starts a countdown from where the number is
+
+    - Keep in mind that we are using pull-up on our pico! 

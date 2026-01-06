@@ -1,4 +1,6 @@
 # **Embedded & Network**
+Exams start 09:00
+
 **Tuesday the 8 / jan - 2026** <br>
 Embedded & Network exams will be held the same date
 
