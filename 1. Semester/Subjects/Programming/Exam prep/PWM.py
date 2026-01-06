@@ -3,25 +3,28 @@ from time import sleep
 
 
 
-ledrR= Pin(0, Pin.OUT)
-ledgR=Pin(2, Pin.OUT)
-ledyR=Pin(1, Pin.OUT)
+ledrL= Pin(0, Pin.OUT)
+ledgL=Pin(2, Pin.OUT)
+ledyL=Pin(1, Pin.OUT)
+
+led_PWM = PWM(ledrL)
+led_PWM.freq(8)
 
 
-ledrL = Pin(3, Pin.OUT)
-ledyL = Pin(4, Pin.OUT)
-ledgL = Pin(5, Pin.OUT)
+ledrR = Pin(3, Pin.OUT)
+ledyR = Pin(4, Pin.OUT)
+ledgR = Pin(5, Pin.OUT)
 
 
 pins = [
-    Pin(2, Pin.OUT),  # A
-    Pin(3, Pin.OUT),  # B
-    Pin(4, Pin.OUT),  # C
-    Pin(5, Pin.OUT),  # D
-    Pin(6, Pin.OUT),  # E
-    Pin(8, Pin.OUT),  # F
-    Pin(7, Pin.OUT),  # G
-    Pin(0, Pin.OUT)   # DP (not connected)
+    Pin(8, Pin.OUT),  # A
+    Pin(9, Pin.OUT),  # B
+    Pin(10, Pin.OUT),  # C
+    Pin(12, Pin.OUT),  # D
+    Pin(13, Pin.OUT),  # E
+    Pin(15, Pin.OUT),  # F
+    Pin(14, Pin.OUT),  # G
+    Pin(11, Pin.OUT)   # DP (not connected)
 ]
 
 
@@ -69,9 +72,17 @@ def ledTest():
     ledyR.off()
     ledrR.off()
 
-
+def PWMTest():
+    duty_step = 50000
+    for i in range(100):
+        led_PWM.duty_u16(duty_step)
+        sleep(0.05)
+    
 
 def main():
-    blink()
-    ledTest()
+    #blink()
+    #ledTest()
+    PWMTest()
 
+
+main()
