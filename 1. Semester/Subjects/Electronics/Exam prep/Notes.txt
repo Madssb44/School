@@ -1,0 +1,5 @@
+duty cycle is how long the power is on 
+
+time/hz or feaq is how long its takes to go trough a cycle, or T = 1/f
+
+
