@@ -28,4 +28,8 @@ electronic diragrams
 
 
 
+## Build itformation 
+
+We need to connect our battery to our H-Bridge, but we also need a fuse between as to not ruin the circuit
+
 
