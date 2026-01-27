@@ -2,9 +2,19 @@
 
 ## what is a modul 
 
-a modul is a file that you call for a function that isn't a part of your code 
+a modul is a folder you import into your code as to then be able to then call the functions form the modul you imported
+
 
 Modules are structred to only have one functionality
+
+while a modul only should cover one function there can be more functions in a modul fx 
+
+sensors
+    TOF_sensor.py 
+    Reflection_sensor.py 
+
+in this example sensors is the modul and you can then call the different sensors and the functions that are in them  
+
 
 a main will always be the start and will then call other modules to get the entire program to work together 
 
