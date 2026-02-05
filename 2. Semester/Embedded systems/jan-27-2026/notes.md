@@ -1,6 +1,5 @@
 # batteries 
 
-
 find data | google the different batteries and find their data  
 
 
