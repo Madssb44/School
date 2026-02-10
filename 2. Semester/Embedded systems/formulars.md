@@ -1,4 +1,6 @@
 # Formulars 
+||||
+||||
 Formulars commonly used when working in IOT
 
 ## Speed
