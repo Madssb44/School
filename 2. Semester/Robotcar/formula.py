@@ -64,3 +64,50 @@ steer_gain = find_speed(30)
 for i in range(100):
     left, right = control()
     print(f"speed set for left = {left} \nspeed set for right = {right}")
+
+
+
+
+"""
+
+target_dist = 40 # target to drive at 
+dist = meanure() # func for measuring the current dist 
+error = dist - target_dist # find the error 
+
+e_max = 50
+e_min = -20 
+
+
+
+def calc_duty(error, side):
+    
+
+def find_steer(tgd,dist,error,side):
+    if side ==  r and error > 10:
+        duty = calc_duty()
+    elif side == l and error > 10:
+        duty = calc_duty()
+    elif side == r and error > -10:
+        duty = calc_duty()
+    elif side == l and error > -10:
+        duty = calc_duty()
+            return duty
+
+
+if error < -10: 
+    get further
+    
+    right wheel low
+    left wheel high 
+
+if error > 10: 
+    get closer 
+
+    right wheel high
+    left wheel low 
+
+else:
+    go forward
+
+
+"""
