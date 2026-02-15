@@ -1,5 +1,6 @@
 from C_LED import C_LED_SET_MODE, LEDName, LEDMode
 from robocar import * 
+from tof_task import * 
 
 #############################################################
 # Module setup
@@ -41,10 +42,12 @@ smActiveState = STATE_CLOSE
 #
 # Warning       None
 ###################################################################################################
-def smAction_A():
+def smAction_CLOSE():
+    global distance_mm 
     # Example code. Insert your own ACTIOn code
-    C_LED_SET_MODE( LEDName.LED_PICO, LEDMode.LED_MODE_OFF, 500 )
-    smSetTimeout_sec( 3 )
+    C_LED_SET_MODE( LEDName.LED_PICO, LEDMode.LED_MODE_ON, 500 )
+    print(30 * "\n")
+    print(f"Current active state: FAR \nCurrent distance measured: {distance_mm}")
 
 ###################################################################################################
 # Brief         Action B for the statemachine
@@ -54,10 +57,12 @@ def smAction_A():
 #
 # Warning       None
 ###################################################################################################
-def smAction_B():
+def smAction_FAR():
+    global distance_mm 
     # Example code. Insert your own ACTIOn code
     C_LED_SET_MODE( LEDName.LED_PICO, LEDMode.LED_MODE_FLASH, 500 )
-    smSetTimeout_sec( 7 )
+    print(30 * "\n")
+    print(f"Current active state: CLOSE\nCurrent distance measured: {distance_mm}")
 
 ###################################################################################################
 # Brief         Sets the timer in seconds.
@@ -104,7 +109,7 @@ def checkEVENT_TIMEOUT():
 # Warning       None
 ###################################################################################################
 def check_EVENT_DISTANCE():
-    global EVENT_DISTANCE_CLOSE, EVENT_DISTANCE_FAR
+    global EVENT_DISTANCE_CLOSE, EVENT_DISTANCE_FAR, EVENT_TIMEOUT
 
     # In state CLOSE we check if the car is too close to the wall
     if smActiveState == STATE_CLOSE:
@@ -116,7 +121,8 @@ def check_EVENT_DISTANCE():
         if C_robocar_get_distance() < 200:
             EVENT_DISTANCE_CLOSE = True   
             EVENT_DISTANCE_FAR = False 
-
+    
+    smSetTimeout_sec( 1 )
 #############################################################
 # Public functions
 #############################################################
@@ -135,7 +141,7 @@ def C_SM_Main_Init():
     # Hvad der skal ske her afhænger af jeres program.
     # Det er forskelligt hvad der skal til for at "kickstarte" dit program
     smActiveState = STATE_CLOSE
-    smAction_A()
+    smAction_CLOSE()
     smSetTimeout_sec( 1 )
 
 ###################################################################################################
@@ -152,30 +158,33 @@ def C_SM_Main_task():
     global EVENT_DISTANCE_FAR
     global EVENT_DISTANCE_CLOSE
     
-    ###############################################################
-    # STATE_CLOSE
-    ###############################################################
-    if smActiveState == STATE_CLOSE:
-        if EVENT_DISTANCE_FAR == True:
-            # ACTION:
-            smAction_A()
-            # TRANSITION:
-            smActiveState = STATE_FAR                 
-            # Reset event:
-            EVENT_DISTANCE_FAR = False
 
-    ###############################################################
-    # STATE_FAR 
-    ###############################################################
-    elif smActiveState == STATE_FAR:
-        if EVENT_DISTANCE_CLOSE == True:
-            # ACTION: Insert your action code here:
-            smAction_B()
-            # TRANSITION:
-            smActiveState = STATE_CLOSE 
-            # Reset event:
-            EVENT_DISTANCE_CLOSE = False
-
+    if EVENT_TIMEOUT == True:
+###############################################################
+# STATE_CLOSE
+###############################################################
+        if smActiveState == STATE_CLOSE:
+            if EVENT_DISTANCE_FAR == True:
+                # ACTION:
+                smAction_FAR()
+                # TRANSITION:
+                smActiveState = STATE_FAR                 
+                # Reset event:
+                EVENT_DISTANCE_FAR = False
+                EVENT_TIMEOUT = False 
+###############################################################
+# STATE_FAR 
+###############################################################
+        elif smActiveState == STATE_FAR:
+            if EVENT_DISTANCE_CLOSE == True:
+                # ACTION: Insert your action code here:
+                smAction_CLOSE()
+                # TRANSITION:
+                smActiveState = STATE_CLOSE 
+                # Reset event:
+                EVENT_DISTANCE_CLOSE = False
+                EVENT_TIMEOUT = False 
+        
     ###############################################################
     # Kald funktioner der tjekker for EVENTS
     ###############################################################
