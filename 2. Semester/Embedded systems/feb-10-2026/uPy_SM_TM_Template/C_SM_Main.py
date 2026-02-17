@@ -122,7 +122,6 @@ def check_EVENT_DISTANCE():
             EVENT_DISTANCE_CLOSE = True   
             EVENT_DISTANCE_FAR = False 
     
-    smSetTimeout_sec( 1 )
 #############################################################
 # Public functions
 #############################################################

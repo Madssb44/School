@@ -7,6 +7,7 @@ from C_LED import *
 from C_SM_Main import *
 from C_TM import *
 from robocar import *
+from tof_task import *
 
 #############################################################
 # Module setup
@@ -43,6 +44,7 @@ C_robocar_Init()
 #############################################################
 C_TM_CreateTask( "LED", 10, C_LED_Task )
 C_TM_CreateTask( "SM_MAIN", 100, C_SM_Main_task)
+C_TM_CreateTask( "CHECK_PWM", 100, C_robocar_check_pwm)
 # Add more tasks here...
 
 ###################################################################################################

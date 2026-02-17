@@ -17,6 +17,7 @@ pwmPin = Pin( 14, Pin.IN )
 #############################################################
 PWM_RISING = 0
 distance_mm = 0
+PWM_count = 0
 
 #############################################################
 # Name definitions
@@ -57,10 +58,9 @@ def C_TOF_TASK_Init():
 # Warning       None
 ###################################################################################################
 def pwm_IRQ_handler_ISR( irqPin ):
-    global PWM_RISING, distance_mm
-    if irqPin.value() == 0:
-        distance_mm = 0
-    elif irqPin.value() == 1:
+    global PWM_RISING, distance_mm, PWM_count
+    
+    if irqPin.value() == 1:
         PWM_RISING = ticks_us()
 
     else:
@@ -70,7 +70,7 @@ def pwm_IRQ_handler_ISR( irqPin ):
             distance_mm = 2000 
         else:
             distance_mm = PWM_width_us / 10
- 
+    PWM_count =+ 1
         
 
 ###################################################################################################
@@ -95,8 +95,14 @@ def C_robocar_get_distance():
 #
 # Warning       Must be called at power up
 ###################################################################################################
-def C_robocar_task()
-    pass 
+def C_robocar_check_pwm():
+    global PWM_count
+
+    if PWM_count < 10:
+        distance_mm = 0 
+    PWM_count = 0
+
+
 
 
 
