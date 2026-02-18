@@ -1,0 +1,86 @@
+Task about understanding
+
+Part 1 
+State machines
+
+
+im making a state machine over coffee machine 
+
+
+########################
+# LOCAL VARIABLS 
+########################
+
+
+
+########################
+# STATES 
+######################## 
+STATE_READY = ready light is on and start progarm button is active
+STATE_BREWING = the machine is brewing coffee 
+STATE_STEAMING = the machine is spraying steaming water 
+STATE_WARMING = checks temperatuer until water is hot enough
+
+########################
+# EVENTS 
+########################
+EVENT_START_PROGARM = on button press from ready state the selected program starts (brewming or steaming) and disable start progarm button and sets timer dictated from selected program 
+EVENT_DONE_WITH_PROGRAM = when timeout set from the start progarm is done go to warming state 
+EVENT_WATER_IS_READY = then the temp from warming state is high enough, the ready indicator light turns on, starts ready state 
+EVENT_CHANGE_MODE = changes between coffee, steaming program and shows on a screen which is selected 
+
+
+
+
+Part 2
+the difference between tasks and functions
+
+Tasks
+A task is something that needs to be done over and over, from the coffee machine example earlier a task could be check mode,
+no matter if the machine is brewing, ready or steaming you can always change the mode, as well as each brewing being a task,
+it will start making the coffee and not care if you changed the mode after its already started
+
+Functions 
+a function is a piece of code that is run during a task, from the example earlier in the warming state a function could be take the water temp,
+which would return a measurement which would then be used by a is water warm enough function which would return True or false, both are different functions
+but a task could then be made that would be keep track of the temperatuer which would then call these functions to compleate its "task"
+
+so functions are like the different parts that when put together can accomplish a task
+
+
+
+
+Part 3 
+regulation
+
+what does P do? 
+P stands for potential and is defined by a setpoint and a measurement fx you have a watertank which needs to weight 100kg 
+100kg is your setpoint, you then weight the tank and get a weight of 120kg, you then take your setpoint and subtracts your measurement which gives you a error
+error = setpoint - measurement / -20kg = 100kg - 120kg 
+the -20kg is then used to calculate P by taking your error and multiplying it by a magic number fx 0.5
+so now we have a regulation of -10kg so when the new measurement is taken our error would only be -10kg so it would slowly got closer to our target
+
+what does I do?
+I is the intergral of the total number of errors averaged out so if the example above had multiplyied by 2 instead regulate with -40kg
+the error the next time will then be 20kg so the resurting regulation would be +40kg making it so it would never get accurate
+so by using i you would then be able to take the earlier error into account letting you take more potent regulations so you faster would get to your desired goal
+
+
+Part 4
+By using IRQ you can set a trigger and a handler which allows you to interupt what you are currently doing and doing something else
+
+so as an example if i was in the middle of a task like walking down a streat a trigger could be someone asking me a question,
+i would then have to handle it by answering the question, now depending on the question my task can either be stoped or continue fx: 
+the interupt is someone talking to me, if its only someone saying hi i can keep on walking, if its someone who needs to show me something i need to stop my task,
+if its someone who wants to talk with me while walking i now started a new task of keeping a convisation with them
+
+What could have worked better on the elevator? 
+it would have allowed us to actively show which floor we are on instead of updating our display after we arrived at our floor
+
+
+
+
+
+
+
+
