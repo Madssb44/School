@@ -1,40 +1,45 @@
-from movement import motor
-from sensors import TOF, hall_sens, REF_sens
-from time import sleep, sleep_ms
-from modes import Wall,Sumo
-from web import udp_main as web
-
-def main():
-    while True:
-        try:
-            print("running main")
-            REF_sens.ref_irq_init()
-            hall_sens.hall_irq_init()
-
-            web.UDP_Listen()
-            """"
-            ch=input("press the corresponding number to start said mode:\n"
-                     "1) wallfollow\n"
-                     "2) sumo\n"
-                     "3) test forward movement (future football)")
-            #motor.test_movement()
-            #motor.turn_right()
-            #motor.turn_left()
-            if ch == "1":
-                Wall.find_wall()
-            if ch == "2":
-                Sumo.find_box()
-            if ch == "3":
-                motor.test_forward(100
-            if ch == "4":
-                Sumo.dummy()
-            """""
-        except KeyboardInterrupt:
-            print("interrupted")
-            motor.stop_motors()
+#########################################################
+# Import external modules
+#########################################################
+from machine import Timer
+from sensors import hall_irq_init, ref_irq_init, tof_irq_init
+from movement import Car
+from web import UDP_init, UDP_listen
+from .TM import * 
 
 
-main()
+#########################################################
+# Hardware config
+#########################################################
+# 1 ms timer interrupt:
+# Define the IRQ callback ISR:
+def tick( timer ):
+    tm_update_isr()
+
+tim = Timer()
+tim.init(freq=1000, mode=Timer.PERIODIC, callback=tick)
 
 
+#########################################################
+# internal init modules
+#########################################################
+UDP_init()
+hall_irq_init()
+ref_irq_init()
+tof_irq_init()
+RC_car = Car(16,17,18,19,20,21, l_offset=4)
 
+
+#########################################################
+# CREATS TASKS
+#########################################################
+create_task( UDP_LISTENER, 10, UDP_listen )
+create_task( CALC_SPEED, 1000, calc_speed )
+create_task( PRINT_TO_TERMINAL, 1000, print(f"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoing at {get_speed()} cmps"))
+
+
+#########################################################
+# EXECUTES TASKS
+#########################################################
+while True:
+    tm_execute_task()
