@@ -72,7 +72,7 @@ def go_back():
 
 
 def push():
-     """pushes the box and counts each time its called
+    """pushes the box and counts each time its called
 
     Param: push_time
     Return: Raises push timer 
