@@ -1,5 +1,5 @@
 from movement import motor
-from sensors import TOF
+from sensors import TOF, hall_sens, REF_sens
 from time import sleep, sleep_ms
 from modes import Wall,Sumo
 from web import udp_main as web
@@ -8,6 +8,9 @@ def main():
     while True:
         try:
             print("running main")
+            REF_sens.ref_irq_init()
+            hall_sens.hall_irq_init()
+
             web.UDP_Listen()
             """"
             ch=input("press the corresponding number to start said mode:\n"
