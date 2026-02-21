@@ -8,17 +8,8 @@ addr = "10.110.0.39", 12345
 
 try:
     while True:
-        
-        if keyboard.is_pressed('w') and keyboard.is_pressed('a'):
-            data = "wa"
-            data = data.encode("ascii")
-            soc.sendto(data, addr)
 
-        elif keyboard.is_pressed('w') and keyboard.is_pressed('d'):
-            data = "wd"
-            data = data.encode("ascii")
-            soc.sendto(data, addr)
-        elif keyboard.is_pressed('space'):
+        if keyboard.is_pressed('space'):
             data = "stop"
             data = data.encode("ascii")
             soc.sendto(data, addr)
