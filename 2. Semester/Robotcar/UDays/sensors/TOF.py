@@ -16,13 +16,14 @@ def tof_irq_handler( gy53 ):
     global pwm_pulse, pwm_rising
     """measures the distance with the GY-53 sensor and returns the measurement in CM"""
     if gy53.value() == 1:
-        pwm_rising = time.ticks_ms()
+        pwm_rising = time.ticks_us()
     else:
-        pwm_pulse = time.ticks_ms()
+        pwm_pulse = time.ticks_us()
         dist_cm = (pwm_rising - pwm_pulse) / 100 
         distance.append(dist_cm)
 
-def get_distance()-> float:
+def get_distance():
+    
     distance_temp = distance[-1,-2,-3]
     distance_temp.sort()
     distance = distance_temp 
