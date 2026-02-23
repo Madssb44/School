@@ -7,7 +7,9 @@ i_sum = 0.0
 
 def pi_calc(cm):
     global i_sum
-    p_val = 5000
+    base_speed = 50000
+    base_turning = 35000
+    p_val = 1500 
     i_val = 0.1
     target_dist = 30
 
@@ -23,12 +25,12 @@ def pi_calc(cm):
             error = -10
     
     if error > 0:
-        r_duty = int(duty * 0.8)
-        l_duty = duty 
+        r_duty = int( duty + base_turning )
+        l_duty = int( duty + base_speed ) 
     else:
-        r_duty = duty
-        l_duty = int(duty * 0.8)
-    
+        r_duty = int( duty + base_speed )
+        l_duty = int( duty + base_turning )
+
     return r_duty, l_duty
     
     
