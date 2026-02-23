@@ -1,90 +1,98 @@
-from movement import motor
+############################################################
+# IMPORTS 
+############################################################
+from ..main import RC_car
 from sensors import TOF, REF_sens
 import time
 
 
-count = 0
-box = False
-
-def dummy():
-    motor.q_turn_left(50)
-    time.sleep_ms(175)
-    motor.stop_motors()
-
-def find_box() -> None:
-    global box
 ###########################################################
-##          pls read IMPORTANT                           ##
-##       Sumo at the moment is not very precise          ##
+# LOCAL VARIABLS
 ###########################################################
-    if not box:
-        cm = TOF.measure()
-    if box:
-        cm = 200
-    edge = REF_sens.ref_measure()
-    #print("edge =", edge)
-    #print("cm =", cm)
-    give_command(cm, edge)
+push_time = 0 # ms 
+turning = False # Becomes true while turning to face the box 
+turn_time = 1000 # ms 
+reset = False # becomes true when it finds a box 
 
 
+###########################################################
+# LOGIC FOR SUMO MODE 
+###########################################################
+def sumo_main():
+    """Main logic loop for sumo mode
 
-def give_command(cm: float, edge: int) -> None:
-    """gives the command to the robot"""
-    """tankegang:
-    bil drejer i cirkel indtil den finder en box,
-    når den har fundet en box vil den køre ind i den indtil den når kanten
-    når bilen når kanten vil den stoppe og gå tilbage i ligeså lang tid som den kørte frem (return to middle)
-    inden den søger igen vil bilen dreje 45 grader (dvs, x antal millisekunder)for at undgå at konstant køre ind i den samme kasse"""
-    global box
-    print(cm)
-    """
-    if edge == 1:
-        go_back()
-    elif box == True:
+    Param: turning, reset 
+    Return: can set reset & turning to true if criteria is meet 
+    Warning: Needs to have ref & tof sensor interrupts to be enabled """
+    global turning, reset
+    box = REF_sens.check_box()
+    
+    if reset:
+        if box:
+            if turning:
+                setting_up()
+            else:
+                push()
+        else:
+            go_back()
+    elif not box:
+        cm = TOF.get_distance()
+        if 70 < cm > 10:
+            REF_sens.found_box()
+            reset = True
+            turning = True
+            RC_car.stop()
+        else:
+            find_box()
         
-        push()
-    elif cm > 10 and cm < 70 and box == False:
-        print("Found box at ",cm)
-        box = True
-        motor.stop_motors()
-        time.sleep_ms(500)
-        motor.q_turn_left(50)
-        time.sleep_ms(1110)
+###########################################################
+# MOVEMENT FUNCTIONS
+###########################################################
+def find_box():
+    """Custome movement for finding a box
+
+    Param: None 
+    Return: None 
+    Warning: Make sure you know your pins! """
+    RC_car.custom_movement(1,0,1,0,30,80)
 
 
+def go_back():
+    """resets position after box has been pushed out 
+
+    Param: reset, push_time 
+    Return: lowers push time and sets reset to false when pushtime is at 0 
+    Warning: None """
+    global push_time, reset 
+    if push_time:
+        RC_car.move_forward(50)
+        push_time -= 10
     else:
-        print("No box, searching...")
-        motor.stop_motors()
-        motor.q_turn_left(40)
-
-
-
-def go_back() -> None:  # we go back, then we stop and turn
-    global count, box
-    print("GB " + str(count))
-    if count == 0 and box == False:
-        motor.move_forward(50)
-        time.sleep(1)
-        
-    for x in range(count):
-        motor.move_forward(50)
-        time.sleep_ms(20)
-        motor.stop_motors()
-
-    motor.q_turn_right(50)
-    time.sleep_ms(400)
-    count = 0
-    box = False
-
-
+        reset = False 
 
 
 def push():
-    global count
-    motor.move_back(50)
-    count += 1
-    print("pushing ",count)
+    """pushes the box and counts each time its called
+
+    Param: push_time
+    Return: Raises push timer 
+    Warning: None"""
+    global push_time 
+    RC_car.move_back(50)
+    push_time += 10  
 
 
+def setting_up():
+    """Sets the car up to push the box
 
-"""
+    Param: turning, turn_time
+    Return: lowers turn timer until its done turnig then it resets turning and the timer 
+    Warning: None """
+    global turning, turn_time 
+    if turn_time:
+        RC_car.q_turn_right(50)
+        turn_time -= 10
+    else:
+        turn_time = 1000 
+        turning = False 
+

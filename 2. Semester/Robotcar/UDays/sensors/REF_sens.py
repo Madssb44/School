@@ -1,38 +1,71 @@
-#Importing modules
+#####################################################
+# Importing modules
+#####################################################
 import time
 from machine import Pin
-from movement import motor
 
-# setting the pin for the Reflection sensor 
+
+
+#####################################################
+# SETTING PINS 
+#####################################################
 ref_sens = Pin(15, Pin.IN)  # Initialize pin
 
 
 #####################################################
-# Init for ref sensor 
+# LOCAL VARIABLES 
+#####################################################
+box = False  
+
+
+#####################################################
+# INIT FOR IRQ  
 #####################################################
 def ref_irq_init():
-    ref_sens.irq(trigger = Pin.IRQ_FALLING, handler = ref_irq_handler)
+    """Init function for ir sensors irq
+
+    Param: None
+    Return: None
+    Warning: Must be called for interrupts to work"""
+    ref_sens.irq(trigger = Pin.IRQ_RISING, handler = ref_irq_handler)
 
 
 ######################################################
-# ref sensor handler 
+# IRQ HANDLER  
 ######################################################
 def ref_irq_handler( ref_sens ):
+    """Handler for ir sensor
+    Will make the car drive forwards when going out of bounds
 
-    turning = True 
-    start = time.ticks_ms()
-
-    motor.q_turn_right(50)
-    while turning:
-        now = time.ticks_ms()
-        if (now - start) <= 300:
-            turning = False
-
-    motor.move_forward(40)
+    Param: Pin 
+    Return: None 
+    Warning: ref_irq_init must be called first"""
+    global box
+    RC_car.move_forward(60)
+    box = False 
 
 
+######################################################
+# PUBLIC FUNCTIONS 
+######################################################
+def check_box():
+    """Checks if box is found or not
 
-  
+    Param: None 
+    Return: bool
+    Warning: Will effect movement in sumo mode"""
+    global box
+    return box 
+
+def found_box():
+    """sets box to true when a box is found
+
+    Param: None
+    Return: None
+    Warning: Will effect movement in sumo mode"""
+    global box
+    box = True 
+    
 
 
 

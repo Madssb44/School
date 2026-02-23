@@ -1,119 +1,85 @@
 # /udp_main.py
-from movement import motor
-from network import WLAN
-from modes import Sumo, Wall
-from sensors import hall_sens
-import machine
+from modes import *
+from sensors import *
+from ..main import RC_car
 import socket
-import time
 
 wall = False 
 sumo = False
-
 lm = None 
+
 speed = 80
 
+
+
+soc = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+
+
 def UDP_init():
-    soc = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    global soc
     soc.bind(("0.0.0.0", 12345))
 
-def UDP_Listen():
-    
-    global wall, sumo, lm, speed 
-    # Setup socket
-    #soc = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # Internet protocol, UDP
-    #soc.bind(("0.0.0.0", 12345)) # Bind the socket to the machines own IP, and port 12345 
-    
-    # Indicate program is ready
-
-
+def UDP_listen():
+    global soc, wall, sumo, lm, speed 
     try:
         # Wait for a command
-            
-                
         data, addr = soc.recvfrom(1024)
             
         # Convert data from bytes to string
         data = data.decode('ascii').strip('\n').lower()
-                                        
-        #print("Received from", addr, ":", data)
-           
-        # Handles speed cases with edge case control movement recall 
-        #if data == '1':
-        #    speed = 100
-        #    if lm:
-        #        data = lm
-        #        lm = None
-                    
-        #if data == '2':
-        #    speed = 80
-        #    if lm:
-        #        data = lm
-        #        lm = None
-        #if data == "3":
-        #    speed = 60
-        #    if lm:
-        #        data = lm
-        #        lm = None
 
 
             # Handle command
         if data == 'w':
-            motor.move_forward(speed)
-            #lm = data
+            RC_car.move_forward(speed)
                 
         elif data == 's':
-            motor.move_back(speed)
-            #lm = data
+            RC_car.move_back(speed)
                 
         elif data == 'd':
-            motor.q_turn_right(speed)
-            #lm = data
+            RC_car.q_turn_right(speed)
                 
         elif data == 'a':
-            motor.q_turn_left(speed)
-            #lm = data
+            RC_car.q_turn_left(speed)
                 
         elif data == 'e':
-            motor.turn_right(speed)
-            #lm = data
+            RC_car.turn_right(speed)
                 
         elif data == 'q':
-            motor.turn_left(speed)
-            #lm = data
+            RC_car.turn_left(speed)
                 
         elif data == "stop":
-            motor.stop_motors()
-            #lm = data 
+            RC_car.stop_motors() 
                 
         elif data == '2':
             sumo = True
-            Sumo.find_box()
+            sumo_main()
         
         elif data == '1':
             wall = True
-            Wall.find_wall()
+            wall_main()
         
         elif data == '3':
-            motor.stop_motors()
+            RC_car.stop()
         
         else:
             if wall == True:
                 if data == "4":
                     wall = False
-                    motor.stop_motors()
+                    RC_car.stop()
                 else:
-                    Wall.find_wall()
+                    wall_main()
             if sumo == True:
                 if data == "4":
                     sumo = False
-                    motor.stop_motors()
+                    RC_car.stop()
                 else:
-                   Sumo.find_box()
+                   sumo_main()
             else:
                 if data == "nothing":
                     if speed < 30:
-                        motor.stop_motors()
+                        RC_car.stop()
                     else:
                         speed -= 2
 
@@ -123,3 +89,4 @@ def UDP_Listen():
         # If the program is interrupted, we need to close the port
         soc.close()
         raise e # Re-raise the error, so the program exits properly
+
