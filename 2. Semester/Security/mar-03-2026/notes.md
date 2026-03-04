@@ -5,8 +5,8 @@
 ### mail: pjep@eaaa.dk
 
 ### Arbejdsarfering:
-vestas
-danfuss
+Vestas 
+Danfuss 
 
 # security
 
@@ -52,7 +52,7 @@ Internal network
 
 External network 
 
-### VLAN
+## VLAN
 What is it?
 
 Virtural Local Area Network
