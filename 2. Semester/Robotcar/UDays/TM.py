@@ -1,5 +1,3 @@
-import main
-
 TM_TIMER_INTERVAL = 1 # ms
 
 
@@ -20,7 +18,7 @@ task_list = []
 # Make Task list func
 #########################################################
 def create_task( task_name:str, task_interval:int, task_callback ):
-    list_temp = [task_name, task_interval, task_callback]
+    list_temp = [task_name, task_interval,0, task_callback]
     task_list.append( list_temp )
 
 #########################################################

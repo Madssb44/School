@@ -1,8 +1,8 @@
 ############################################################
 # IMPORTS 
 ############################################################
-from ..main import RC_car
-from sensors import TOF, REF_sens
+from main import RC_car
+from sensors import *
 import time
 
 
@@ -25,7 +25,7 @@ def sumo_main():
     Return: can set reset & turning to true if criteria is meet 
     Warning: Needs to have ref & tof sensor interrupts to be enabled """
     global turning, reset
-    box = REF_sens.check_box()
+    box = check_box()
     
     if reset:
         if box:
@@ -36,9 +36,9 @@ def sumo_main():
         else:
             go_back()
     elif not box:
-        cm = TOF.get_distance()
-        if 70 < cm > 10:
-            REF_sens.found_box()
+        cm = get_distance()
+        if cm < 60:
+            found_box()
             reset = True
             turning = True
             RC_car.stop()
