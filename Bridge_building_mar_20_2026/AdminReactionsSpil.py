@@ -32,11 +32,23 @@ THINGSBOARD_HOST = "eu.thingsboard.cloud"
 # 
 # I skal indsætte navn, password og token.
 ############################################
+g1 = "qa1h5klusyfwsbpcatbr"
 
+g2 = "SguE4h4W3BZHVBpdFJWL"
+
+g3 = "jVS5NGX7qTD4gzMxZntd"
+
+g4 = "O5lbRuC6A1oD0asoBaqi"
+
+g5 = "kBPq37XoZJ2MlNzrQrLM"
+
+g6 = "haZLSxqJ1VbIItKRCbVM"
+tokens = [g1,g2,g3,g4,g5,g6]
 # ----------- KONFIG -----------
-WIFI_SSID = '##########'                      
-WIFI_PASS = '##########'
-ACCESS_TOKEN = '##########'
+WIFI_SSID = 'ITEK 2nd'                      
+WIFI_PASS = '2nd_Semester_F25v'
+ACCESS_TOKEN = "##########"
+
 client = TBDeviceMqttClient(THINGSBOARD_HOST,1883, ACCESS_TOKEN)
 
 # ----------- WIFI ----------- 
@@ -51,6 +63,14 @@ while not wlan.isconnected():
 print("WiFi forbundet:", wlan.ifconfig())
 
 
+def test_send():
+    for token in tokens:
+        client = TBDeviceMqttClient(THINGSBOARD_HOST,1883, token)
+        client.connect()
+        telemetry = {"navn":"reg test", "tid": 100, "match navn": "match test", "match tid": 100}
+        client.send_telemetry(telemetry)
+        client.disconnect()    
+
 ############################################
 # START SPIL
 #
@@ -64,7 +84,8 @@ def start_game(count):
             count += 1
             time.sleep(0.2)
         if count >= 2:
-            react_game()
+            #react_game()
+            tid_at_matche()
             break
 
 
@@ -78,7 +99,6 @@ def start_game(count):
 def react_game():
     time.sleep_ms(random.randrange(2000,8000,1))
     start_time = time.ticks_ms()
-
     led.on()
     switch.on()
     while True:
@@ -114,8 +134,8 @@ def calc_result(start, end):
 ############################################
 def send_data(resultat, navn):
     client.connect()
-    telemetry = {"match tid": resultat, "match navn": navn}
-    client.send_telemetry(telemetry)
+    telemetry = {"tid": resultat, "navn": navn, "match navn": "test", "match tid": 100}
+    client.send_telemetry(telemetry)    
     client.disconnect()
 
 
@@ -163,7 +183,6 @@ def tid_at_matche():
 
 def spiller_tid(tid):
     led.on()
-
     while switch.value() == 0:
         time.sleep(0.01)
 
@@ -187,11 +206,29 @@ def spiller_tid(tid):
 # og udregningen skal laves så functionen kan beregne det rigtige resultatet
 #############################################
 def calc_diff(start, end, tid):
-    resultat = foo +-*/() bar +-*/() foobar 
-    print(f"Dit resultat er: {resultat}ms")
-    time.sleep(1)
-    navn = input("Skriv dit navn her: ")
-    send_match_data(resultat, navn)
+    resultat = tid - (end - start)
+    if resultat > 0:
+       print(f"Du skulle machte {tid}ms")
+       print(f"Og din tid var {end - start}ms")
+       time.sleep(2)
+       print(f"Så du var {resultat}ms for hurtig")
+       time.sleep(1)
+       navn = input("Skriv dit navn her: ")
+       send_match_data(resultat, navn)
+    elif resultat < 0:
+       print(f"Du skulle matche {tid}ms")
+       print(f"Og din tid var {end - start}ms")
+       time.sleep(2)
+       print(f"Så du var {resultat}ms for langsom")
+       time.sleep(1)
+       navn = input("Skriv dit navn her: ")
+       send_match_data(resultat, navn)
+    else:
+       print(f"Du skulle matche {tid}ms")
+       print(f"Og din tid var {end - start}ms så perfect score!!!")
+       time.sleep(2)
+       navn = input("Skriv dit navn her: ")
+       send_match_data(resultat, navn)
 
 
 #############################################
@@ -202,10 +239,10 @@ def calc_diff(start, end, tid):
 # Hvilke parameter skal functionen burge?
 # Hvad skal sendes som navn og hvad skal sendes som tid?
 #############################################
-def send_match_data(???, ???): 
+def send_match_data(resultat, navn): 
     client.connect()
-    telemetry = {"match tid" : ???, "match navn" : ???}
-    client.send.telemetry(telemetry)
+    telemetry = {"match tid" : resultat, "match navn" : navn}
+    client.send_telemetry(telemetry)
     client.disconnect()
 
 
@@ -245,3 +282,4 @@ def main():
 ############################################
 while True:   
     main()
+#test_send()
