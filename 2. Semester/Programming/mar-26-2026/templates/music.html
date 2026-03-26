@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="da">
+<head></head>
+<title>Pick your poison</title>
+{% for gen,type in genres.items() %}
+    <h1>types of {{gen}} music</h1>
+    {% for type in genres[gen] %}
+        <li style="text-indent: 20px; font-size: 20px;">{{type}}</li>
+    {% endfor %}
+{% endfor %}
+
+

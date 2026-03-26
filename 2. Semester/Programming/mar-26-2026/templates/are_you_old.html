@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="da">
+<head></head>
+<body>
+{% if old > 25 %}
+    <h1>damn you are old!</h1>
+    <img src="{{url_for('static', filename='19...jpg')}}">
+{% else %}
+    <h1>Damn you are a child...</h1>
+    <img src="{{url_for('static', filename='2000.jpg')}}">
+{% endif %}
+</body>
+
