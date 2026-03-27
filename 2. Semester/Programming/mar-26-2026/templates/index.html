@@ -1,20 +1,23 @@
 <!doctype html>
 <html lang="da">
-<head></head>
-<body>
-<h1>Got your ip buddy</h1>
-        <b><div>
-                {% if name %}
-                    <h2>Hello {{name}}</h2></b>
-                {% else %}
-                    <h2>Hello World!</h2></b>
-                {% endif %}    
-                You are {{age}} years old<br>
-                {% for i in range(0, len) %}
-                    <li>{{thing_list[i]}}
-                {% endfor %}
-            </div>
-</body>      
+    <head></head>
+        <body>
+            <h1>Got your ip buddy</h1>
+                <b><div>
+                    {% if name %}
+                        <h2>Hello {{name}}</h2></b>
+                    {% else %}
+                        <h2>Hello World!</h2></b>
+                    {% endif %}    
+                    You are {{age}} years old<br>
+                    <a href="{{url_for('old')}}">
+                        <button>Am i old?</button>
+                    </a>
+                    {% for i in range(0, len) %}
+                        <li>{{thing_list[i]}}
+                    {% endfor %}
+                </div>
+        </body>
 
             
 
