@@ -4,10 +4,10 @@
 <body>
 {% if old > 25 %}
     <h1>damn you are old!</h1>
-    <img src="{{url_for('static', filename='19...jpg')}}">
+    <img src="{{url_for('static', filename='pics/19...jpg')}}">
 {% else %}
     <h1>Damn you are a child...</h1>
-    <img src="{{url_for('static', filename='2000.jpg')}}">
+    <img src="{{url_for('static', filename='/pics/2000.jpg')}}">
 {% endif %}
 </body>
 

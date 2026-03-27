@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang='da'>
+
+    <head></head>
+    {% if user == 'admin' %}
+        <h1>Welcome to the admin dashboard<h1>
+    {% else %}
+        <h1>Welcome to your personal dashboard {{user}}</h1>
+    {% endif %}
+</html>
