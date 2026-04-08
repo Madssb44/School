@@ -81,4 +81,4 @@ def dashboard():
     return render_template("dashboard.html", user="not logged in yet")
 
 
-app.run(port=5000)
+app.run(port=5000, ssl_context='adhoc')
