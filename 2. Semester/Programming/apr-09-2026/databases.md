@@ -40,4 +40,17 @@ A primary key is what other tables use to refer to it if they need some data for
 ### Foreign key 
 A foreign key is refering to a key not assosiated with the table you are currently working in 
 
+### Query
+a query is a set of parameters that we use when reaching out to our database to get something from it an example could be:
+
+SELECT * FROM users WHERE userrole = 'admin'
+
+This query would take everything indicated by the * form the table users where the userrole coloumn value is admin and return
+all the data assosiated with the entries that the query applis to so in this case all the users that are have the admin role
+
+### Where to use it
+Theres many ways to use a database but the one we will be using is with python which like many other programming languages
+methods built in to the language to work with a database
+
+
 
