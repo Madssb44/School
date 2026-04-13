@@ -1,4 +1,3 @@
-from time import sleep 
-
-timer = 1 
-
+for i in range(10):
+    print("hello")
+    
